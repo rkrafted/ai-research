@@ -1,0 +1,19 @@
+# R0 deep-dive: run the released Ouro checkpoints on the 3090 and sweep the recurrent depth.
+#
+# Reads benchmark/loop-eval-v1.jsonl (200 authored 4-way MCQ items: 100 multi-step arithmetic
+# + 100 factual knowledge). Scores each configuration by length-normalised log-likelihood at
+# total_ut_steps in {1,2,4,8} for Ouro-2.6B and {1,4} for Ouro-1.4B / Ouro-2.6B-Thinking, plus
+# the non-looped Qwen3-1.7B baseline. Writes state/looped-eval.json — the only thing allowed
+# to write that file.
+#
+# Requires the HF cache to be populated by fetch/ouro-2.6b.yaml, fetch/ouro-1.4b.yaml,
+# fetch/ouro-2.6b-thinking.yaml and fetch/qwen3-1.7b.yaml (the runner downloads them before
+# this job runs; the job itself is offline).
+#
+# The Ouro custom modeling code targets transformers 4.54; the shared 3090 venv is 5.17.
+# tools/looped_eval.py installs the verified compatibility shims in-process. If every Ouro
+# load fails it falls back to a middle-layer-repeat experiment on Qwen3-1.7B and labels those
+# runs "layer-repeat:Qwen/Qwen3-1.7B".
+script: tools/looped_eval.py
+timeout_minutes: 240
+vram_gb: 16

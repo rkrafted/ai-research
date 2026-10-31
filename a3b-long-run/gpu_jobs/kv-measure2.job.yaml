@@ -1,0 +1,10 @@
+# a3b KV sweep, second run. The first job (kv-measure) called ctx 81920 a fit
+# for q8_0 because /health passed, then died on the first prompt: the compute
+# buffers are allocated at first decode. fit_ctx now prefills a full
+# 2048-token batch (one generated token) before calling a config a fit.
+# The scorer also now accepts a two-line answer to the single multi-hop question.
+# Completed f16 cells are reused from state/kvfrontier/results.jsonl.
+script: kvfrontier/measure.py
+args: ["--minutes", "220"]
+timeout_minutes: 240
+vram_gb: 23

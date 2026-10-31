@@ -1,0 +1,1803 @@
+{
+  "generated_by": "airesearch.lens",
+  "n_eligible": 100,
+  "top": [
+    {
+      "key": "chain of thought",
+      "label": "Chain of Thought",
+      "profiled": true,
+      "videos": 77,
+      "channels": 14,
+      "claims": 263,
+      "papers": 41,
+      "repos": 10,
+      "areas": [
+        "agents",
+        "eval",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 40,
+        "capability_per_flop_vram": 70,
+        "test_time_compute": 90,
+        "data_efficiency": 20,
+        "evidence_quality": 100.0,
+        "transfer": 100.0,
+        "cost_to_try": 0.25
+      },
+      "gain": 58.5,
+      "priority": 1170.0,
+      "youtube": "https://www.youtube.com/watch?v=-FSt-8aiMfU&t=182s",
+      "arxiv": [
+        "https://arxiv.org/abs/1807.03819",
+        "https://arxiv.org/abs/2001.08361",
+        "https://arxiv.org/abs/2107.05407",
+        "https://arxiv.org/abs/2201.11903",
+        "https://arxiv.org/abs/2207.05221",
+        "https://arxiv.org/abs/2211.04325",
+        "https://arxiv.org/abs/2305.04091",
+        "https://arxiv.org/abs/2305.20050",
+        "https://arxiv.org/abs/2310.02226",
+        "https://arxiv.org/abs/2311.04897",
+        "https://arxiv.org/abs/2311.17713",
+        "https://arxiv.org/abs/2401.06066",
+        "https://arxiv.org/abs/2401.12345",
+        "https://arxiv.org/abs/2402.03300",
+        "https://arxiv.org/abs/2402.10200",
+        "https://arxiv.org/abs/2403.02419",
+        "https://arxiv.org/abs/2404.15758",
+        "https://arxiv.org/abs/2406.14197",
+        "https://arxiv.org/abs/2407.21787",
+        "https://arxiv.org/abs/2408.03314",
+        "https://arxiv.org/abs/2409.12183",
+        "https://arxiv.org/abs/2409.12822",
+        "https://arxiv.org/abs/2409.17146",
+        "https://arxiv.org/abs/2412.04984",
+        "https://arxiv.org/abs/2412.06769",
+        "https://arxiv.org/abs/2412.14135",
+        "https://arxiv.org/abs/2412.19437",
+        "https://arxiv.org/abs/2501.04519",
+        "https://arxiv.org/abs/2501.12599",
+        "https://arxiv.org/abs/2501.12948",
+        "https://arxiv.org/abs/2502.03387",
+        "https://arxiv.org/abs/2502.05171",
+        "https://arxiv.org/abs/2502.08235",
+        "https://arxiv.org/abs/2502.11886",
+        "https://arxiv.org/abs/2503.02875",
+        "https://arxiv.org/abs/2504.13837",
+        "https://arxiv.org/abs/2507.10524",
+        "https://arxiv.org/abs/2510.25741",
+        "https://arxiv.org/abs/2604.07822",
+        "https://arxiv.org/abs/2604.11791",
+        "https://arxiv.org/abs/2604.12946"
+      ]
+    },
+    {
+      "key": "prompt engineering",
+      "label": "Prompt Engineering",
+      "profiled": true,
+      "videos": 57,
+      "channels": 13,
+      "claims": 213,
+      "papers": 14,
+      "repos": 16,
+      "areas": [
+        "agents",
+        "eval",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 25,
+        "capability_per_flop_vram": 85,
+        "test_time_compute": 55,
+        "data_efficiency": 65,
+        "evidence_quality": 100.0,
+        "transfer": 100.0,
+        "cost_to_try": 0.25
+      },
+      "gain": 56.5,
+      "priority": 1130.0,
+      "youtube": "https://www.youtube.com/watch?v=0-CbsNB9tdk",
+      "arxiv": [
+        "https://arxiv.org/abs/1908.10084",
+        "https://arxiv.org/abs/2207.05221",
+        "https://arxiv.org/abs/2305.04091",
+        "https://arxiv.org/abs/2310.02226",
+        "https://arxiv.org/abs/2311.04897",
+        "https://arxiv.org/abs/2311.06242",
+        "https://arxiv.org/abs/2311.17035",
+        "https://arxiv.org/abs/2402.05929",
+        "https://arxiv.org/abs/2402.18563",
+        "https://arxiv.org/abs/2404.12272",
+        "https://arxiv.org/abs/2502.03387",
+        "https://arxiv.org/abs/2502.08235",
+        "https://arxiv.org/abs/2502.11886",
+        "https://arxiv.org/abs/2503.02875"
+      ]
+    },
+    {
+      "key": "in-context learning",
+      "label": "In-Context Learning",
+      "profiled": true,
+      "videos": 13,
+      "channels": 9,
+      "claims": 46,
+      "papers": 14,
+      "repos": 2,
+      "areas": [
+        "agents",
+        "eval",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 20,
+        "capability_per_flop_vram": 80,
+        "test_time_compute": 60,
+        "data_efficiency": 70,
+        "evidence_quality": 90.33,
+        "transfer": 100.0,
+        "cost_to_try": 0.25
+      },
+      "gain": 55.5,
+      "priority": 1061.698,
+      "youtube": "https://www.youtube.com/watch?v=CPkUCqcrULg&t=10s",
+      "arxiv": [
+        "https://arxiv.org/abs/2401.04088",
+        "https://arxiv.org/abs/2401.09417",
+        "https://arxiv.org/abs/2401.14196",
+        "https://arxiv.org/abs/2402.06196",
+        "https://arxiv.org/abs/2403.05530",
+        "https://arxiv.org/abs/2403.08295",
+        "https://arxiv.org/abs/2404.14219",
+        "https://arxiv.org/abs/2404.19756",
+        "https://arxiv.org/abs/2405.19592",
+        "https://arxiv.org/abs/2406.00515",
+        "https://arxiv.org/abs/2407.10671",
+        "https://arxiv.org/abs/2407.21783",
+        "https://arxiv.org/abs/2408.00118",
+        "https://arxiv.org/abs/2409.12191"
+      ]
+    },
+    {
+      "key": "rag",
+      "label": "RAG",
+      "profiled": true,
+      "videos": 121,
+      "channels": 14,
+      "claims": 420,
+      "papers": 18,
+      "repos": 23,
+      "areas": [
+        "agents",
+        "distill",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 55,
+        "capability_per_flop_vram": 85,
+        "test_time_compute": 40,
+        "data_efficiency": 60,
+        "evidence_quality": 100.0,
+        "transfer": 100.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 61.0,
+      "priority": 862.67,
+      "youtube": "https://www.youtube.com/watch?v=-wGzSnhQKPM&t=951s",
+      "arxiv": [
+        "https://arxiv.org/abs/1908.10084",
+        "https://arxiv.org/abs/2207.05221",
+        "https://arxiv.org/abs/2305.04091",
+        "https://arxiv.org/abs/2310.02226",
+        "https://arxiv.org/abs/2311.04897",
+        "https://arxiv.org/abs/2402.10376",
+        "https://arxiv.org/abs/2404.10981",
+        "https://arxiv.org/abs/2405.20362",
+        "https://arxiv.org/abs/2407.10671",
+        "https://arxiv.org/abs/2407.21783",
+        "https://arxiv.org/abs/2408.04948",
+        "https://arxiv.org/abs/2408.06292",
+        "https://arxiv.org/abs/2408.07611",
+        "https://arxiv.org/abs/2409.11402",
+        "https://arxiv.org/abs/2409.12191",
+        "https://arxiv.org/abs/2412.14135",
+        "https://arxiv.org/abs/2508.21038",
+        "https://arxiv.org/abs/2512.24601"
+      ]
+    },
+    {
+      "key": "tool use",
+      "label": "Tool Use",
+      "profiled": true,
+      "videos": 58,
+      "channels": 9,
+      "claims": 223,
+      "papers": 2,
+      "repos": 30,
+      "areas": [
+        "agents",
+        "eval",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 40,
+        "capability_per_flop_vram": 82,
+        "test_time_compute": 55,
+        "data_efficiency": 45,
+        "evidence_quality": 88.33,
+        "transfer": 100.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 57.1,
+      "priority": 765.109,
+      "youtube": "https://www.youtube.com/watch?v=1TU9ZrZhqw0",
+      "arxiv": [
+        "https://arxiv.org/abs/2310.08560",
+        "https://arxiv.org/abs/2404.01744"
+      ]
+    },
+    {
+      "key": "embeddings",
+      "label": "Embeddings",
+      "profiled": true,
+      "videos": 20,
+      "channels": 9,
+      "claims": 70,
+      "papers": 6,
+      "repos": 4,
+      "areas": [
+        "agents",
+        "distill",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 40,
+        "capability_per_flop_vram": 80,
+        "test_time_compute": 30,
+        "data_efficiency": 55,
+        "evidence_quality": 100.0,
+        "transfer": 100.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 51.75,
+      "priority": 731.856,
+      "youtube": "https://www.youtube.com/watch?v=2NQzCbPvUMs",
+      "arxiv": [
+        "https://arxiv.org/abs/2310.06816",
+        "https://arxiv.org/abs/2404.10981",
+        "https://arxiv.org/abs/2408.04948",
+        "https://arxiv.org/abs/2408.07611",
+        "https://arxiv.org/abs/2410.02525",
+        "https://arxiv.org/abs/2505.12540"
+      ]
+    },
+    {
+      "key": "context engineering",
+      "label": "context engineering",
+      "profiled": true,
+      "videos": 19,
+      "channels": 6,
+      "claims": 73,
+      "papers": 0,
+      "repos": 3,
+      "areas": [
+        "agents",
+        "eval",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 35,
+        "capability_per_flop_vram": 80,
+        "test_time_compute": 55,
+        "data_efficiency": 70,
+        "evidence_quality": 60.0,
+        "transfer": 100.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 58.75,
+      "priority": 681.297,
+      "youtube": "https://www.youtube.com/watch?v=4loPnxvWWhg&t=241s",
+      "arxiv": []
+    },
+    {
+      "key": "self-consistency",
+      "label": "Self-Consistency",
+      "profiled": true,
+      "videos": 18,
+      "channels": 9,
+      "claims": 60,
+      "papers": 12,
+      "repos": 2,
+      "areas": [
+        "agents",
+        "eval",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 30,
+        "capability_per_flop_vram": 60,
+        "test_time_compute": 95,
+        "data_efficiency": 10,
+        "evidence_quality": 79.67,
+        "transfer": 100.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 52.25,
+      "priority": 671.326,
+      "youtube": "https://www.youtube.com/watch?v=70Pl0R8R9dk&t=364s",
+      "arxiv": [
+        "https://arxiv.org/abs/2207.05221",
+        "https://arxiv.org/abs/2305.04091",
+        "https://arxiv.org/abs/2310.02226",
+        "https://arxiv.org/abs/2311.04897",
+        "https://arxiv.org/abs/2311.07466",
+        "https://arxiv.org/abs/2311.17713",
+        "https://arxiv.org/abs/2401.10774",
+        "https://arxiv.org/abs/2401.12345",
+        "https://arxiv.org/abs/2402.03300",
+        "https://arxiv.org/abs/2404.18624",
+        "https://arxiv.org/abs/2408.06292",
+        "https://arxiv.org/abs/2412.14135"
+      ]
+    },
+    {
+      "key": "test-time compute",
+      "label": "Test-Time Compute",
+      "profiled": true,
+      "videos": 24,
+      "channels": 8,
+      "claims": 91,
+      "papers": 12,
+      "repos": 2,
+      "areas": [
+        "agents",
+        "eval",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 75,
+        "capability_per_flop_vram": 75,
+        "test_time_compute": 95,
+        "data_efficiency": 20,
+        "evidence_quality": 83.67,
+        "transfer": 100.0,
+        "cost_to_try": 1.0
+      },
+      "gain": 71.75,
+      "priority": 664.775,
+      "youtube": "https://www.youtube.com/watch?v=-FSt-8aiMfU&t=182s",
+      "arxiv": [
+        "https://arxiv.org/abs/2207.05221",
+        "https://arxiv.org/abs/2305.04091",
+        "https://arxiv.org/abs/2310.02226",
+        "https://arxiv.org/abs/2311.04897",
+        "https://arxiv.org/abs/2402.10200",
+        "https://arxiv.org/abs/2404.15758",
+        "https://arxiv.org/abs/2408.03314",
+        "https://arxiv.org/abs/2409.12183",
+        "https://arxiv.org/abs/2409.12822",
+        "https://arxiv.org/abs/2411.07279",
+        "https://arxiv.org/abs/2502.05171",
+        "https://arxiv.org/abs/2504.13171"
+      ]
+    },
+    {
+      "key": "llm-as-a-judge",
+      "label": "LLM-as-a-Judge",
+      "profiled": true,
+      "videos": 13,
+      "channels": 6,
+      "claims": 43,
+      "papers": 3,
+      "repos": 1,
+      "areas": [
+        "distill",
+        "eval",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 30,
+        "capability_per_flop_vram": 55,
+        "test_time_compute": 80,
+        "data_efficiency": 40,
+        "evidence_quality": 75.67,
+        "transfer": 100.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 51.5,
+      "priority": 648.58,
+      "youtube": "https://www.youtube.com/watch?v=4o_ic83U1Kw",
+      "arxiv": [
+        "https://arxiv.org/abs/2401.10020",
+        "https://arxiv.org/abs/2404.12272",
+        "https://arxiv.org/abs/2501.04519"
+      ]
+    },
+    {
+      "key": "evals",
+      "label": "evals",
+      "profiled": true,
+      "videos": 18,
+      "channels": 7,
+      "claims": 67,
+      "papers": 1,
+      "repos": 2,
+      "areas": [
+        "distill",
+        "eval",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 40,
+        "capability_per_flop_vram": 80,
+        "test_time_compute": 40,
+        "data_efficiency": 50,
+        "evidence_quality": 65.83,
+        "transfer": 100.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 53.5,
+      "priority": 640.265,
+      "youtube": "https://www.youtube.com/watch?v=3ZMUiFaQ3qg&t=93s",
+      "arxiv": [
+        "https://arxiv.org/abs/2404.12272"
+      ]
+    },
+    {
+      "key": "scaling laws",
+      "label": "Scaling Laws",
+      "profiled": true,
+      "videos": 28,
+      "channels": 10,
+      "claims": 95,
+      "papers": 11,
+      "repos": 1,
+      "areas": [
+        "distill",
+        "eval",
+        "training"
+      ],
+      "components": {
+        "capability_per_parameter": 60,
+        "capability_per_flop_vram": 55,
+        "test_time_compute": 20,
+        "data_efficiency": 60,
+        "evidence_quality": 83.33,
+        "transfer": 100.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 48.5,
+      "priority": 634.441,
+      "youtube": "https://www.youtube.com/watch?v=5vBM3D0tZ5U",
+      "arxiv": [
+        "https://arxiv.org/abs/1011.3245",
+        "https://arxiv.org/abs/1807.03819",
+        "https://arxiv.org/abs/2001.08361",
+        "https://arxiv.org/abs/2107.05407",
+        "https://arxiv.org/abs/2211.04325",
+        "https://arxiv.org/abs/2402.07043",
+        "https://arxiv.org/abs/2410.02536",
+        "https://arxiv.org/abs/2410.07041",
+        "https://arxiv.org/abs/2410.18514",
+        "https://arxiv.org/abs/2504.13837",
+        "https://arxiv.org/abs/2510.25741"
+      ]
+    },
+    {
+      "key": "dspy",
+      "label": "DSPy",
+      "profiled": true,
+      "videos": 7,
+      "channels": 5,
+      "claims": 29,
+      "papers": 0,
+      "repos": 3,
+      "areas": [
+        "agents",
+        "distill",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 40,
+        "capability_per_flop_vram": 80,
+        "test_time_compute": 55,
+        "data_efficiency": 75,
+        "evidence_quality": 42.83,
+        "transfer": 95.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 61.0,
+      "priority": 621.513,
+      "youtube": "https://www.youtube.com/watch?v=0gYMqFYRtDI",
+      "arxiv": []
+    },
+    {
+      "key": "retrieval",
+      "label": "Retrieval",
+      "profiled": true,
+      "videos": 8,
+      "channels": 6,
+      "claims": 29,
+      "papers": 1,
+      "repos": 4,
+      "areas": [
+        "agents",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 50,
+        "capability_per_flop_vram": 85,
+        "test_time_compute": 40,
+        "data_efficiency": 60,
+        "evidence_quality": 63.67,
+        "transfer": 80.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 59.5,
+      "priority": 619.424,
+      "youtube": "https://www.youtube.com/watch?v=74Du4Ej_-yM&t=1867s",
+      "arxiv": [
+        "https://arxiv.org/abs/2304.03442"
+      ]
+    },
+    {
+      "key": "vector search",
+      "label": "Vector Search",
+      "profiled": true,
+      "videos": 14,
+      "channels": 8,
+      "claims": 47,
+      "papers": 3,
+      "repos": 9,
+      "areas": [
+        "agents",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 35,
+        "capability_per_flop_vram": 80,
+        "test_time_compute": 30,
+        "data_efficiency": 50,
+        "evidence_quality": 100.0,
+        "transfer": 80.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 49.5,
+      "priority": 616.031,
+      "youtube": "https://www.youtube.com/watch?v=0fJ3TcY8bO8&t=687s",
+      "arxiv": [
+        "https://arxiv.org/abs/2404.10981",
+        "https://arxiv.org/abs/2408.04948",
+        "https://arxiv.org/abs/2408.07611"
+      ]
+    },
+    {
+      "key": "quantization",
+      "label": "Quantization",
+      "profiled": true,
+      "videos": 71,
+      "channels": 15,
+      "claims": 255,
+      "papers": 12,
+      "repos": 83,
+      "areas": [
+        "distill",
+        "training",
+        "vision"
+      ],
+      "components": {
+        "capability_per_parameter": 95,
+        "capability_per_flop_vram": 98,
+        "test_time_compute": 10,
+        "data_efficiency": 5,
+        "evidence_quality": 100.0,
+        "transfer": 100.0,
+        "cost_to_try": 1.0
+      },
+      "gain": 61.15,
+      "priority": 611.5,
+      "youtube": "https://www.youtube.com/watch?v=0VdNflU08yA",
+      "arxiv": [
+        "https://arxiv.org/abs/2210.17323",
+        "https://arxiv.org/abs/2306.00978",
+        "https://arxiv.org/abs/2309.14717",
+        "https://arxiv.org/abs/2402.02750",
+        "https://arxiv.org/abs/2403.07815",
+        "https://arxiv.org/abs/2405.12497",
+        "https://arxiv.org/abs/2406.02528",
+        "https://arxiv.org/abs/2406.03482",
+        "https://arxiv.org/abs/2412.14135",
+        "https://arxiv.org/abs/2502.02617",
+        "https://arxiv.org/abs/2504.19874",
+        "https://arxiv.org/abs/2607.24653"
+      ]
+    },
+    {
+      "key": "agents",
+      "label": "AI agents",
+      "profiled": true,
+      "videos": 122,
+      "channels": 11,
+      "claims": 413,
+      "papers": 10,
+      "repos": 15,
+      "areas": [
+        "agents",
+        "distill",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 45,
+        "capability_per_flop_vram": 75,
+        "test_time_compute": 60,
+        "data_efficiency": 45,
+        "evidence_quality": 100.0,
+        "transfer": 100.0,
+        "cost_to_try": 1.0
+      },
+      "gain": 57.75,
+      "priority": 577.5,
+      "youtube": "https://www.youtube.com/watch?v=--SB_qJw9sg",
+      "arxiv": [
+        "https://arxiv.org/abs/2308.10848",
+        "https://arxiv.org/abs/2310.08560",
+        "https://arxiv.org/abs/2310.12931",
+        "https://arxiv.org/abs/2312.13010",
+        "https://arxiv.org/abs/2402.05120",
+        "https://arxiv.org/abs/2404.07972",
+        "https://arxiv.org/abs/2407.01502",
+        "https://arxiv.org/abs/2409.11363",
+        "https://arxiv.org/abs/2410.07095",
+        "https://arxiv.org/abs/2502.16982"
+      ]
+    },
+    {
+      "key": "planning",
+      "label": "Planning",
+      "profiled": true,
+      "videos": 6,
+      "channels": 5,
+      "claims": 27,
+      "papers": 6,
+      "repos": 2,
+      "areas": [
+        "agents",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 45,
+        "capability_per_flop_vram": 75,
+        "test_time_compute": 60,
+        "data_efficiency": 40,
+        "evidence_quality": 69.5,
+        "transfer": 70.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 57.0,
+      "priority": 570.281,
+      "youtube": "https://www.youtube.com/watch?v=ETq3ZTqxFlo&t=68s",
+      "arxiv": [
+        "https://arxiv.org/abs/2304.03442",
+        "https://arxiv.org/abs/2308.01404",
+        "https://arxiv.org/abs/2401.13178",
+        "https://arxiv.org/abs/2401.13919",
+        "https://arxiv.org/abs/2501.03575",
+        "https://arxiv.org/abs/2601.16163"
+      ]
+    },
+    {
+      "key": "interpretability",
+      "label": "Sparse Autoencoders",
+      "profiled": true,
+      "videos": 25,
+      "channels": 13,
+      "claims": 77,
+      "papers": 4,
+      "repos": 5,
+      "areas": [
+        "distill",
+        "eval",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 55,
+        "capability_per_flop_vram": 70,
+        "test_time_compute": 40,
+        "data_efficiency": 60,
+        "evidence_quality": 92.0,
+        "transfer": 100.0,
+        "cost_to_try": 1.0
+      },
+      "gain": 56.5,
+      "priority": 544.66,
+      "youtube": "https://www.youtube.com/watch?v=5-1lKFvV1i0&t=317s",
+      "arxiv": [
+        "https://arxiv.org/abs/2303.08001",
+        "https://arxiv.org/abs/2304.14997",
+        "https://arxiv.org/abs/2408.05147",
+        "https://arxiv.org/abs/2410.14670"
+      ]
+    },
+    {
+      "key": "bm25",
+      "label": "BM25",
+      "profiled": true,
+      "videos": 8,
+      "channels": 3,
+      "claims": 31,
+      "papers": 0,
+      "repos": 8,
+      "areas": [
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 20,
+        "capability_per_flop_vram": 95,
+        "test_time_compute": 20,
+        "data_efficiency": 40,
+        "evidence_quality": 41.83,
+        "transfer": 60.0,
+        "cost_to_try": 0.25
+      },
+      "gain": 45.5,
+      "priority": 510.563,
+      "youtube": "https://www.youtube.com/watch?v=-wGzSnhQKPM&t=951s",
+      "arxiv": []
+    },
+    {
+      "key": "beam search",
+      "label": "Beam search",
+      "profiled": true,
+      "videos": 6,
+      "channels": 5,
+      "claims": 23,
+      "papers": 5,
+      "repos": 3,
+      "areas": [
+        "extraction",
+        "speech"
+      ],
+      "components": {
+        "capability_per_parameter": 20,
+        "capability_per_flop_vram": 70,
+        "test_time_compute": 80,
+        "data_efficiency": 5,
+        "evidence_quality": 81.83,
+        "transfer": 70.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 47.75,
+      "priority": 508.459,
+      "youtube": "https://www.youtube.com/watch?v=2hcsmtkSzIw",
+      "arxiv": [
+        "https://arxiv.org/abs/2201.11903",
+        "https://arxiv.org/abs/2305.20050",
+        "https://arxiv.org/abs/2403.02419",
+        "https://arxiv.org/abs/2407.01082",
+        "https://arxiv.org/abs/2407.21787"
+      ]
+    },
+    {
+      "key": "kv cache",
+      "label": "KV Cache",
+      "profiled": true,
+      "videos": 13,
+      "channels": 7,
+      "claims": 39,
+      "papers": 5,
+      "repos": 5,
+      "areas": [
+        "agents",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 20,
+        "capability_per_flop_vram": 95,
+        "test_time_compute": 30,
+        "data_efficiency": 5,
+        "evidence_quality": 89.5,
+        "transfer": 80.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 42.75,
+      "priority": 506.889,
+      "youtube": "https://www.youtube.com/watch?v=Hrbq66XqtCo",
+      "arxiv": [
+        "https://arxiv.org/abs/2309.17453",
+        "https://arxiv.org/abs/2501.00663",
+        "https://arxiv.org/abs/2504.02732",
+        "https://arxiv.org/abs/2510.26692",
+        "https://arxiv.org/abs/2512.23675"
+      ]
+    },
+    {
+      "key": "react",
+      "label": "ReAct",
+      "profiled": true,
+      "videos": 8,
+      "channels": 3,
+      "claims": 34,
+      "papers": 0,
+      "repos": 2,
+      "areas": [
+        "agents",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 40,
+        "capability_per_flop_vram": 80,
+        "test_time_compute": 65,
+        "data_efficiency": 40,
+        "evidence_quality": 30.83,
+        "transfer": 80.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 58.25,
+      "priority": 499.282,
+      "youtube": "https://www.youtube.com/watch?v=5_L_BpL5Whs",
+      "arxiv": []
+    },
+    {
+      "key": "vector databases",
+      "label": "Vector Databases",
+      "profiled": true,
+      "videos": 19,
+      "channels": 6,
+      "claims": 69,
+      "papers": 1,
+      "repos": 4,
+      "areas": [
+        "agents",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 30,
+        "capability_per_flop_vram": 80,
+        "test_time_compute": 25,
+        "data_efficiency": 45,
+        "evidence_quality": 69.0,
+        "transfer": 80.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 46.0,
+      "priority": 492.614,
+      "youtube": "https://www.youtube.com/watch?v=9ozwh9EDGhU&t=2s",
+      "arxiv": [
+        "https://arxiv.org/abs/2508.21038"
+      ]
+    },
+    {
+      "key": "logit lens",
+      "label": "Logit Lens",
+      "profiled": true,
+      "videos": 7,
+      "channels": 4,
+      "claims": 26,
+      "papers": 5,
+      "repos": 2,
+      "areas": [
+        "distill",
+        "eval"
+      ],
+      "components": {
+        "capability_per_parameter": 35,
+        "capability_per_flop_vram": 80,
+        "test_time_compute": 30,
+        "data_efficiency": 50,
+        "evidence_quality": 61.67,
+        "transfer": 75.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 49.5,
+      "priority": 492.397,
+      "youtube": "https://www.youtube.com/watch?v=1ONwQzauqkc&t=382s",
+      "arxiv": [
+        "https://arxiv.org/abs/2004.12605",
+        "https://arxiv.org/abs/2303.08001",
+        "https://arxiv.org/abs/2303.08112",
+        "https://arxiv.org/abs/2304.14997",
+        "https://arxiv.org/abs/2512.01797"
+      ]
+    },
+    {
+      "key": "reflection",
+      "label": "Reflection",
+      "profiled": true,
+      "videos": 3,
+      "channels": 3,
+      "claims": 15,
+      "papers": 1,
+      "repos": 2,
+      "areas": [
+        "agents",
+        "eval",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 35,
+        "capability_per_flop_vram": 60,
+        "test_time_compute": 90,
+        "data_efficiency": 20,
+        "evidence_quality": 43.83,
+        "transfer": 75.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 54.0,
+      "priority": 485.048,
+      "youtube": "https://www.youtube.com/watch?v=8t65bss7U74&t=196s",
+      "arxiv": [
+        "https://arxiv.org/abs/2304.03442"
+      ]
+    },
+    {
+      "key": "clip",
+      "label": "CLIP",
+      "profiled": true,
+      "videos": 11,
+      "channels": 9,
+      "claims": 39,
+      "papers": 8,
+      "repos": 3,
+      "areas": [
+        "extraction",
+        "vision"
+      ],
+      "components": {
+        "capability_per_parameter": 45,
+        "capability_per_flop_vram": 85,
+        "test_time_compute": 30,
+        "data_efficiency": 60,
+        "evidence_quality": 97.33,
+        "transfer": 80.0,
+        "cost_to_try": 1.0
+      },
+      "gain": 55.5,
+      "priority": 482.532,
+      "youtube": "https://www.youtube.com/watch?v=2NmRJxaUwyE&t=1s",
+      "arxiv": [
+        "https://arxiv.org/abs/2006.11239",
+        "https://arxiv.org/abs/2010.02502",
+        "https://arxiv.org/abs/2103.00020",
+        "https://arxiv.org/abs/2207.12598",
+        "https://arxiv.org/abs/2310.16656",
+        "https://arxiv.org/abs/2403.03206",
+        "https://arxiv.org/abs/2406.08929",
+        "https://arxiv.org/abs/2511.08544"
+      ]
+    },
+    {
+      "key": "synthetic data generation",
+      "label": "Synthetic data generation",
+      "profiled": true,
+      "videos": 39,
+      "channels": 12,
+      "claims": 139,
+      "papers": 2,
+      "repos": 6,
+      "areas": [
+        "distill",
+        "extraction",
+        "speech",
+        "training"
+      ],
+      "components": {
+        "capability_per_parameter": 70,
+        "capability_per_flop_vram": 75,
+        "test_time_compute": 20,
+        "data_efficiency": 90,
+        "evidence_quality": 88.33,
+        "transfer": 100.0,
+        "cost_to_try": 1.5
+      },
+      "gain": 62.0,
+      "priority": 479.643,
+      "youtube": "https://www.youtube.com/watch?v=-_x7lhhZK7M",
+      "arxiv": [
+        "https://arxiv.org/abs/2408.16333",
+        "https://arxiv.org/abs/2506.10943"
+      ]
+    },
+    {
+      "key": "prompt injection",
+      "label": "Prompt Injection",
+      "profiled": true,
+      "videos": 21,
+      "channels": 8,
+      "claims": 76,
+      "papers": 4,
+      "repos": 1,
+      "areas": [
+        "agents",
+        "eval"
+      ],
+      "components": {
+        "capability_per_parameter": 20,
+        "capability_per_flop_vram": 75,
+        "test_time_compute": 30,
+        "data_efficiency": 20,
+        "evidence_quality": 83.33,
+        "transfer": 80.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 39.0,
+      "priority": 448.949,
+      "youtube": "https://www.youtube.com/watch?v=4lXks428C9o&t=16s",
+      "arxiv": [
+        "https://arxiv.org/abs/2212.06470",
+        "https://arxiv.org/abs/2307.10490",
+        "https://arxiv.org/abs/2403.06634",
+        "https://arxiv.org/abs/2608.09867"
+      ]
+    },
+    {
+      "key": "lora",
+      "label": "LoRA",
+      "profiled": true,
+      "videos": 65,
+      "channels": 12,
+      "claims": 238,
+      "papers": 17,
+      "repos": 56,
+      "areas": [
+        "agents",
+        "distill",
+        "speech",
+        "training"
+      ],
+      "components": {
+        "capability_per_parameter": 85,
+        "capability_per_flop_vram": 85,
+        "test_time_compute": 5,
+        "data_efficiency": 15,
+        "evidence_quality": 100.0,
+        "transfer": 100.0,
+        "cost_to_try": 1.5
+      },
+      "gain": 54.5,
+      "priority": 444.991,
+      "youtube": "https://www.youtube.com/watch?v=1N76mJ1pMro&t=231s",
+      "arxiv": [
+        "https://arxiv.org/abs/2210.17323",
+        "https://arxiv.org/abs/2306.00978",
+        "https://arxiv.org/abs/2306.07691",
+        "https://arxiv.org/abs/2310.05914",
+        "https://arxiv.org/abs/2310.06825",
+        "https://arxiv.org/abs/2311.06242",
+        "https://arxiv.org/abs/2311.17713",
+        "https://arxiv.org/abs/2401.04088",
+        "https://arxiv.org/abs/2402.09353",
+        "https://arxiv.org/abs/2402.12354",
+        "https://arxiv.org/abs/2402.15116",
+        "https://arxiv.org/abs/2403.03507",
+        "https://arxiv.org/abs/2407.21783",
+        "https://arxiv.org/abs/2409.11340",
+        "https://arxiv.org/abs/2410.00037",
+        "https://arxiv.org/abs/2506.01939",
+        "https://arxiv.org/abs/2607.24653"
+      ]
+    },
+    {
+      "key": "small language models",
+      "label": "Small Language Models (SLMs)",
+      "profiled": true,
+      "videos": 7,
+      "channels": 6,
+      "claims": 19,
+      "papers": 0,
+      "repos": 0,
+      "areas": [
+        "agents",
+        "distill",
+        "extraction",
+        "speech"
+      ],
+      "components": {
+        "capability_per_parameter": 95,
+        "capability_per_flop_vram": 90,
+        "test_time_compute": 30,
+        "data_efficiency": 30,
+        "evidence_quality": 27.0,
+        "transfer": 95.0,
+        "cost_to_try": 1.0
+      },
+      "gain": 67.5,
+      "priority": 439.665,
+      "youtube": "https://www.youtube.com/watch?v=CEBhBTbn1BI",
+      "arxiv": []
+    },
+    {
+      "key": "model routing",
+      "label": "Model routing",
+      "profiled": true,
+      "videos": 7,
+      "channels": 2,
+      "claims": 29,
+      "papers": 0,
+      "repos": 0,
+      "areas": [
+        "agents",
+        "distill",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 40,
+        "capability_per_flop_vram": 90,
+        "test_time_compute": 25,
+        "data_efficiency": 10,
+        "evidence_quality": 25.0,
+        "transfer": 95.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 46.75,
+      "priority": 424.868,
+      "youtube": "https://www.youtube.com/watch?v=35ZWesLrv5A&t=496s",
+      "arxiv": []
+    },
+    {
+      "key": "flash attention",
+      "label": "Flash Attention",
+      "profiled": true,
+      "videos": 25,
+      "channels": 10,
+      "claims": 85,
+      "papers": 16,
+      "repos": 19,
+      "areas": [
+        "training",
+        "vision"
+      ],
+      "components": {
+        "capability_per_parameter": 10,
+        "capability_per_flop_vram": 92,
+        "test_time_compute": 10,
+        "data_efficiency": 5,
+        "evidence_quality": 100.0,
+        "transfer": 80.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 33.85,
+      "priority": 421.266,
+      "youtube": "https://www.youtube.com/watch?v=0-MA3jgYMMg&t=510s",
+      "arxiv": [
+        "https://arxiv.org/abs/1706.03762",
+        "https://arxiv.org/abs/2111.00396",
+        "https://arxiv.org/abs/2205.14135",
+        "https://arxiv.org/abs/2305.13245",
+        "https://arxiv.org/abs/2307.08691",
+        "https://arxiv.org/abs/2310.06825",
+        "https://arxiv.org/abs/2312.00752",
+        "https://arxiv.org/abs/2401.04088",
+        "https://arxiv.org/abs/2401.09417",
+        "https://arxiv.org/abs/2405.04434",
+        "https://arxiv.org/abs/2407.21783",
+        "https://arxiv.org/abs/2410.05258",
+        "https://arxiv.org/abs/2412.03317",
+        "https://arxiv.org/abs/2501.00663",
+        "https://arxiv.org/abs/2502.19398",
+        "https://arxiv.org/abs/2507.02754"
+      ]
+    },
+    {
+      "key": "tokenization",
+      "label": "Tokenization",
+      "profiled": true,
+      "videos": 13,
+      "channels": 7,
+      "claims": 44,
+      "papers": 5,
+      "repos": 3,
+      "areas": [
+        "extraction",
+        "speech",
+        "vision"
+      ],
+      "components": {
+        "capability_per_parameter": 15,
+        "capability_per_flop_vram": 70,
+        "test_time_compute": 10,
+        "data_efficiency": 20,
+        "evidence_quality": 89.5,
+        "transfer": 100.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 31.0,
+      "priority": 417.692,
+      "youtube": "https://www.youtube.com/watch?v=Hf7XY38raIs",
+      "arxiv": [
+        "https://arxiv.org/abs/1706.03762",
+        "https://arxiv.org/abs/2312.00752",
+        "https://arxiv.org/abs/2403.07815",
+        "https://arxiv.org/abs/2405.21060",
+        "https://arxiv.org/abs/2408.05147"
+      ]
+    },
+    {
+      "key": "tree of thoughts",
+      "label": "Tree of Thoughts",
+      "profiled": true,
+      "videos": 6,
+      "channels": 2,
+      "claims": 23,
+      "papers": 1,
+      "repos": 0,
+      "areas": [
+        "agents",
+        "eval"
+      ],
+      "components": {
+        "capability_per_parameter": 45,
+        "capability_per_flop_vram": 55,
+        "test_time_compute": 95,
+        "data_efficiency": 15,
+        "evidence_quality": 16.67,
+        "transfer": 70.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 56.0,
+      "priority": 405.889,
+      "youtube": "https://www.youtube.com/watch?v=8t65bss7U74&t=196s",
+      "arxiv": [
+        "https://arxiv.org/abs/2401.12345"
+      ]
+    },
+    {
+      "key": "langgraph",
+      "label": "LangGraph",
+      "profiled": true,
+      "videos": 9,
+      "channels": 2,
+      "claims": 34,
+      "papers": 0,
+      "repos": 3,
+      "areas": [
+        "agents"
+      ],
+      "components": {
+        "capability_per_parameter": 30,
+        "capability_per_flop_vram": 80,
+        "test_time_compute": 45,
+        "data_efficiency": 35,
+        "evidence_quality": 43.33,
+        "transfer": 60.0,
+        "cost_to_try": 0.5
+      },
+      "gain": 49.5,
+      "priority": 396.352,
+      "youtube": "https://www.youtube.com/watch?v=3tZVGJX9GMw&t=1s",
+      "arxiv": []
+    },
+    {
+      "key": "distillation",
+      "label": "Distillation",
+      "profiled": true,
+      "videos": 39,
+      "channels": 15,
+      "claims": 142,
+      "papers": 12,
+      "repos": 18,
+      "areas": [
+        "distill",
+        "extraction",
+        "training"
+      ],
+      "components": {
+        "capability_per_parameter": 95,
+        "capability_per_flop_vram": 90,
+        "test_time_compute": 15,
+        "data_efficiency": 55,
+        "evidence_quality": 100.0,
+        "transfer": 100.0,
+        "cost_to_try": 3.0
+      },
+      "gain": 67.5,
+      "priority": 389.711,
+      "youtube": "https://www.youtube.com/watch?v=1xDVbu-WaFo&t=3s",
+      "arxiv": [
+        "https://arxiv.org/abs/2311.00430",
+        "https://arxiv.org/abs/2311.17713",
+        "https://arxiv.org/abs/2410.18982",
+        "https://arxiv.org/abs/2411.10440",
+        "https://arxiv.org/abs/2411.14405",
+        "https://arxiv.org/abs/2411.15862",
+        "https://arxiv.org/abs/2411.16489",
+        "https://arxiv.org/abs/2412.06769",
+        "https://arxiv.org/abs/2501.19393",
+        "https://arxiv.org/abs/2512.02556",
+        "https://arxiv.org/abs/2512.24601",
+        "https://arxiv.org/abs/2601.07372"
+      ]
+    },
+    {
+      "key": "whisper",
+      "label": "Whisper",
+      "profiled": true,
+      "videos": 12,
+      "channels": 4,
+      "claims": 41,
+      "papers": 0,
+      "repos": 6,
+      "areas": [
+        "extraction",
+        "speech"
+      ],
+      "components": {
+        "capability_per_parameter": 55,
+        "capability_per_flop_vram": 80,
+        "test_time_compute": 25,
+        "data_efficiency": 45,
+        "evidence_quality": 55.0,
+        "transfer": 80.0,
+        "cost_to_try": 1.0
+      },
+      "gain": 53.5,
+      "priority": 375.463,
+      "youtube": "https://www.youtube.com/watch?v=0GV5cYKz7Rc&t=56s",
+      "arxiv": []
+    },
+    {
+      "key": "mcp",
+      "label": "MCP",
+      "profiled": true,
+      "videos": 46,
+      "channels": 8,
+      "claims": 172,
+      "papers": 0,
+      "repos": 2,
+      "areas": [
+        "agents",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 35,
+        "capability_per_flop_vram": 80,
+        "test_time_compute": 50,
+        "data_efficiency": 40,
+        "evidence_quality": 56.67,
+        "transfer": 80.0,
+        "cost_to_try": 1.0
+      },
+      "gain": 53.0,
+      "priority": 375.459,
+      "youtube": "https://www.youtube.com/watch?v=-rSbvS0qLqY&t=75s",
+      "arxiv": []
+    },
+    {
+      "key": "model merging",
+      "label": "Model merging",
+      "profiled": true,
+      "videos": 3,
+      "channels": 3,
+      "claims": 9,
+      "papers": 4,
+      "repos": 2,
+      "areas": [
+        "distill",
+        "training"
+      ],
+      "components": {
+        "capability_per_parameter": 90,
+        "capability_per_flop_vram": 90,
+        "test_time_compute": 10,
+        "data_efficiency": 20,
+        "evidence_quality": 65.83,
+        "transfer": 55.0,
+        "cost_to_try": 1.0
+      },
+      "gain": 59.5,
+      "priority": 367.562,
+      "youtube": "https://www.youtube.com/watch?v=8uq0e_i17FE",
+      "arxiv": [
+        "https://arxiv.org/abs/2403.07816",
+        "https://arxiv.org/abs/2410.03617",
+        "https://arxiv.org/abs/2410.15661",
+        "https://arxiv.org/abs/2505.12082"
+      ]
+    },
+    {
+      "key": "qlora",
+      "label": "QLoRA",
+      "profiled": true,
+      "videos": 15,
+      "channels": 4,
+      "claims": 51,
+      "papers": 1,
+      "repos": 15,
+      "areas": [
+        "distill",
+        "extraction",
+        "training"
+      ],
+      "components": {
+        "capability_per_parameter": 95,
+        "capability_per_flop_vram": 95,
+        "test_time_compute": 10,
+        "data_efficiency": 10,
+        "evidence_quality": 66.67,
+        "transfer": 100.0,
+        "cost_to_try": 2.0
+      },
+      "gain": 61.0,
+      "priority": 366.641,
+      "youtube": "https://www.youtube.com/watch?v=1N76mJ1pMro&t=231s",
+      "arxiv": [
+        "https://arxiv.org/abs/2402.15116"
+      ]
+    },
+    {
+      "key": "mixture of experts",
+      "label": "Mixture of Experts",
+      "profiled": true,
+      "videos": 103,
+      "channels": 16,
+      "claims": 354,
+      "papers": 57,
+      "repos": 27,
+      "areas": [
+        "distill",
+        "training",
+        "vision"
+      ],
+      "components": {
+        "capability_per_parameter": 90,
+        "capability_per_flop_vram": 85,
+        "test_time_compute": 25,
+        "data_efficiency": 20,
+        "evidence_quality": 100.0,
+        "transfer": 100.0,
+        "cost_to_try": 3.0
+      },
+      "gain": 61.75,
+      "priority": 356.514,
+      "youtube": "https://www.youtube.com/watch?v=-FSt-8aiMfU&t=182s",
+      "arxiv": [
+        "https://arxiv.org/abs/1701.06538",
+        "https://arxiv.org/abs/1706.03762",
+        "https://arxiv.org/abs/1807.03819",
+        "https://arxiv.org/abs/2001.08361",
+        "https://arxiv.org/abs/2006.16668",
+        "https://arxiv.org/abs/2107.05407",
+        "https://arxiv.org/abs/2205.14135",
+        "https://arxiv.org/abs/2208.02813",
+        "https://arxiv.org/abs/2211.04325",
+        "https://arxiv.org/abs/2305.13245",
+        "https://arxiv.org/abs/2308.14711",
+        "https://arxiv.org/abs/2309.06180",
+        "https://arxiv.org/abs/2310.06825",
+        "https://arxiv.org/abs/2310.17157",
+        "https://arxiv.org/abs/2311.10768",
+        "https://arxiv.org/abs/2311.17713",
+        "https://arxiv.org/abs/2401.04088",
+        "https://arxiv.org/abs/2401.06066",
+        "https://arxiv.org/abs/2401.09417",
+        "https://arxiv.org/abs/2401.14196",
+        "https://arxiv.org/abs/2402.03300",
+        "https://arxiv.org/abs/2402.06196",
+        "https://arxiv.org/abs/2402.10376",
+        "https://arxiv.org/abs/2402.15116",
+        "https://arxiv.org/abs/2403.05530",
+        "https://arxiv.org/abs/2403.07816",
+        "https://arxiv.org/abs/2403.08295",
+        "https://arxiv.org/abs/2404.02258",
+        "https://arxiv.org/abs/2404.14219",
+        "https://arxiv.org/abs/2404.19756",
+        "https://arxiv.org/abs/2405.04434",
+        "https://arxiv.org/abs/2405.19592",
+        "https://arxiv.org/abs/2406.00515",
+        "https://arxiv.org/abs/2407.04153",
+        "https://arxiv.org/abs/2407.10671",
+        "https://arxiv.org/abs/2407.21783",
+        "https://arxiv.org/abs/2408.00118",
+        "https://arxiv.org/abs/2408.15664",
+        "https://arxiv.org/abs/2409.12191",
+        "https://arxiv.org/abs/2410.05258",
+        "https://arxiv.org/abs/2410.07524",
+        "https://arxiv.org/abs/2412.09764",
+        "https://arxiv.org/abs/2412.14135",
+        "https://arxiv.org/abs/2412.19437",
+        "https://arxiv.org/abs/2501.00663",
+        "https://arxiv.org/abs/2501.12599",
+        "https://arxiv.org/abs/2501.12948",
+        "https://arxiv.org/abs/2504.13837",
+        "https://arxiv.org/abs/2507.20534",
+        "https://arxiv.org/abs/2510.22115",
+        "https://arxiv.org/abs/2510.25741",
+        "https://arxiv.org/abs/2510.26692",
+        "https://arxiv.org/abs/2512.02556",
+        "https://arxiv.org/abs/2512.23675",
+        "https://arxiv.org/abs/2512.24601",
+        "https://arxiv.org/abs/2601.07372",
+        "https://arxiv.org/abs/2602.02276"
+      ]
+    },
+    {
+      "key": "tts",
+      "label": "Voice cloning",
+      "profiled": true,
+      "videos": 35,
+      "channels": 11,
+      "claims": 130,
+      "papers": 1,
+      "repos": 16,
+      "areas": [
+        "agents",
+        "speech"
+      ],
+      "components": {
+        "capability_per_parameter": 60,
+        "capability_per_flop_vram": 75,
+        "test_time_compute": 30,
+        "data_efficiency": 40,
+        "evidence_quality": 76.67,
+        "transfer": 80.0,
+        "cost_to_try": 1.5
+      },
+      "gain": 54.0,
+      "priority": 347.265,
+      "youtube": "https://www.youtube.com/watch?v=3iqvBEGS2So",
+      "arxiv": [
+        "https://arxiv.org/abs/2310.00704"
+      ]
+    },
+    {
+      "key": "ssm",
+      "label": "Mamba",
+      "profiled": true,
+      "videos": 20,
+      "channels": 10,
+      "claims": 77,
+      "papers": 13,
+      "repos": 9,
+      "areas": [
+        "distill",
+        "speech",
+        "vision"
+      ],
+      "components": {
+        "capability_per_parameter": 85,
+        "capability_per_flop_vram": 90,
+        "test_time_compute": 20,
+        "data_efficiency": 15,
+        "evidence_quality": 100.0,
+        "transfer": 100.0,
+        "cost_to_try": 3.0
+      },
+      "gain": 59.75,
+      "priority": 344.967,
+      "youtube": "https://www.youtube.com/watch?v=26PVzD707a8&t=47s",
+      "arxiv": [
+        "https://arxiv.org/abs/1706.03762",
+        "https://arxiv.org/abs/2111.00396",
+        "https://arxiv.org/abs/2205.14135",
+        "https://arxiv.org/abs/2307.08691",
+        "https://arxiv.org/abs/2312.00752",
+        "https://arxiv.org/abs/2401.04081",
+        "https://arxiv.org/abs/2401.09417",
+        "https://arxiv.org/abs/2402.04248",
+        "https://arxiv.org/abs/2403.06977",
+        "https://arxiv.org/abs/2405.04517",
+        "https://arxiv.org/abs/2405.21060",
+        "https://arxiv.org/abs/2407.04620",
+        "https://arxiv.org/abs/2410.01201"
+      ]
+    },
+    {
+      "key": "transformer",
+      "label": "Transformer",
+      "profiled": true,
+      "videos": 100,
+      "channels": 17,
+      "claims": 369,
+      "papers": 32,
+      "repos": 18,
+      "areas": [
+        "distill",
+        "training"
+      ],
+      "components": {
+        "capability_per_parameter": 40,
+        "capability_per_flop_vram": 60,
+        "test_time_compute": 30,
+        "data_efficiency": 10,
+        "evidence_quality": 100.0,
+        "transfer": 80.0,
+        "cost_to_try": 1.0
+      },
+      "gain": 39.0,
+      "priority": 343.2,
+      "youtube": "https://www.youtube.com/watch?v=-BelefxpVc8&t=1s",
+      "arxiv": [
+        "https://arxiv.org/abs/1301.3781",
+        "https://arxiv.org/abs/1706.03762",
+        "https://arxiv.org/abs/1810.04805",
+        "https://arxiv.org/abs/2006.11239",
+        "https://arxiv.org/abs/2010.02502",
+        "https://arxiv.org/abs/2103.00020",
+        "https://arxiv.org/abs/2111.00396",
+        "https://arxiv.org/abs/2205.14135",
+        "https://arxiv.org/abs/2207.12598",
+        "https://arxiv.org/abs/2212.09748",
+        "https://arxiv.org/abs/2304.13705",
+        "https://arxiv.org/abs/2307.06435",
+        "https://arxiv.org/abs/2307.08691",
+        "https://arxiv.org/abs/2312.00752",
+        "https://arxiv.org/abs/2312.03687",
+        "https://arxiv.org/abs/2401.04081",
+        "https://arxiv.org/abs/2401.09417",
+        "https://arxiv.org/abs/2402.15116",
+        "https://arxiv.org/abs/2402.15352",
+        "https://arxiv.org/abs/2403.03100",
+        "https://arxiv.org/abs/2403.03206",
+        "https://arxiv.org/abs/2405.04434",
+        "https://arxiv.org/abs/2405.04517",
+        "https://arxiv.org/abs/2405.21060",
+        "https://arxiv.org/abs/2406.08929",
+        "https://arxiv.org/abs/2410.24164",
+        "https://arxiv.org/abs/2412.06769",
+        "https://arxiv.org/abs/2501.00663",
+        "https://arxiv.org/abs/2501.12948",
+        "https://arxiv.org/abs/2502.05171",
+        "https://arxiv.org/abs/2503.14734",
+        "https://arxiv.org/abs/2603.15031"
+      ]
+    },
+    {
+      "key": "sliding window attention",
+      "label": "Sliding Window Attention",
+      "profiled": true,
+      "videos": 9,
+      "channels": 7,
+      "claims": 31,
+      "papers": 9,
+      "repos": 6,
+      "areas": [
+        "distill",
+        "extraction"
+      ],
+      "components": {
+        "capability_per_parameter": 60,
+        "capability_per_flop_vram": 85,
+        "test_time_compute": 10,
+        "data_efficiency": 10,
+        "evidence_quality": 92.17,
+        "transfer": 80.0,
+        "cost_to_try": 1.5
+      },
+      "gain": 47.5,
+      "priority": 329.27,
+      "youtube": "https://www.youtube.com/watch?v=AU21wwYIt9E",
+      "arxiv": [
+        "https://arxiv.org/abs/2309.17453",
+        "https://arxiv.org/abs/2310.06825",
+        "https://arxiv.org/abs/2401.04088",
+        "https://arxiv.org/abs/2405.04434",
+        "https://arxiv.org/abs/2501.08313",
+        "https://arxiv.org/abs/2504.02732",
+        "https://arxiv.org/abs/2508.10925",
+        "https://arxiv.org/abs/2512.02556",
+        "https://arxiv.org/abs/2602.02276"
+      ]
+    },
+    {
+      "key": "speech-to-text",
+      "label": "speech-to-text",
+      "profiled": true,
+      "videos": 7,
+      "channels": 4,
+      "claims": 25,
+      "papers": 0,
+      "repos": 2,
+      "areas": [
+        "extraction",
+        "speech"
+      ],
+      "components": {
+        "capability_per_parameter": 55,
+        "capability_per_flop_vram": 80,
+        "test_time_compute": 25,
+        "data_efficiency": 45,
+        "evidence_quality": 38.67,
+        "transfer": 75.0,
+        "cost_to_try": 1.0
+      },
+      "gain": 53.5,
+      "priority": 329.246,
+      "youtube": "https://www.youtube.com/watch?v=IDNfAZVKvPE&t=214s",
+      "arxiv": []
+    },
+    {
+      "key": "unsloth",
+      "label": "Unsloth",
+      "profiled": true,
+      "videos": 7,
+      "channels": 2,
+      "claims": 28,
+      "papers": 3,
+      "repos": 5,
+      "areas": [
+        "distill",
+        "training"
+      ],
+      "components": {
+        "capability_per_parameter": 80,
+        "capability_per_flop_vram": 88,
+        "test_time_compute": 5,
+        "data_efficiency": 10,
+        "evidence_quality": 75.67,
+        "transfer": 75.0,
+        "cost_to_try": 1.5
+      },
+      "gain": 53.15,
+      "priority": 328.487,
+      "youtube": "https://www.youtube.com/watch?v=3iqvBEGS2So",
+      "arxiv": [
+        "https://arxiv.org/abs/2310.05914",
+        "https://arxiv.org/abs/2402.09353",
+        "https://arxiv.org/abs/2402.12354"
+      ]
+    },
+    {
+      "key": "dpo",
+      "label": "DPO",
+      "profiled": true,
+      "videos": 36,
+      "channels": 10,
+      "claims": 127,
+      "papers": 7,
+      "repos": 15,
+      "areas": [
+        "distill",
+        "eval",
+        "training"
+      ],
+      "components": {
+        "capability_per_parameter": 80,
+        "capability_per_flop_vram": 70,
+        "test_time_compute": 40,
+        "data_efficiency": 65,
+        "evidence_quality": 100.0,
+        "transfer": 100.0,
+        "cost_to_try": 4.0
+      },
+      "gain": 64.75,
+      "priority": 323.75,
+      "youtube": "https://www.youtube.com/watch?v=3WU6fl7DHj0",
+      "arxiv": [
+        "https://arxiv.org/abs/2305.18290",
+        "https://arxiv.org/abs/2401.10020",
+        "https://arxiv.org/abs/2401.12345",
+        "https://arxiv.org/abs/2402.15116",
+        "https://arxiv.org/abs/2409.17146",
+        "https://arxiv.org/abs/2412.14135",
+        "https://arxiv.org/abs/2503.10494"
+      ]
+    },
+    {
+      "key": "data curation",
+      "label": "Data Curation",
+      "profiled": true,
+      "videos": 7,
+      "channels": 3,
+      "claims": 25,
+      "papers": 0,
+      "repos": 0,
+      "areas": [
+        "distill",
+        "extraction",
+        "training"
+      ],
+      "components": {
+        "capability_per_parameter": 65,
+        "capability_per_flop_vram": 70,
+        "test_time_compute": 10,
+        "data_efficiency": 90,
+        "evidence_quality": 8.83,
+        "transfer": 95.0,
+        "cost_to_try": 1.0
+      },
+      "gain": 56.5,
+      "priority": 323.204,
+      "youtube": "https://www.youtube.com/watch?v=DcvgPEApHT8&t=36s",
+      "arxiv": []
+    }
+  ]
+}

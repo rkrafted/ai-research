@@ -1,0 +1,5 @@
+# Arm E specialist 2/2: prior-art expert, same base and recipe as the first.
+script: smallvsbig/train_expert.py
+args: ["--repo", "prior-art", "--minutes", "120", "--max-length", "12288"]
+timeout_minutes: 240
+vram_gb: 20

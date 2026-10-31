@@ -1,0 +1,955 @@
+# a3b-everywhere — can the A3B run every local task?
+
+Research report (2026-10-17) on one question: can **Qwen3.6-35B-A3B Q4_K_M + DFlash**
+(the "A3B", 23.2 GB on the RTX 3090) replace the 9B/27B models that every `bin/` and
+queue tool still calls — and do **Strata** / **Qwen3.8-Flash** beat it? It also
+answers whether Strata runs on one 3090, whether Qwen3.8-Flash has open weights,
+what the security/provenance picture is, and what the shared-3090 scheduling cost is.
+
+**Read the report:** [`docs/A3B_EVERYWHERE.md`](docs/A3B_EVERYWHERE.md). It contains
+the two 10-line video summaries, the Strata and Qwen3.8-Flash-Next analysis with a
+source for every claim, the security table, the per-tool inventory and the verdict
+table (`tool | today's model | A3B ok? | blocker | expected speedup`).
+
+**Install:** nothing. The report is Markdown; the captions are plain text in
+`data/videos/`. Re-fetching captions needs `yt-dlp` (the existing
+`~/theprojects/spotify-mp3/.venv/bin/yt-dlp` was used) and the repo's existing
+`bycloud.ingest.parse_vtt`; no new dependency, no model download, no network at test
+time.
+
+**Run / reproduce:**
+
+```bash
+# re-fetch the two caption tracks (the second video's manual track may 429;
+# the auto track en-orig is the fallback, as it was here)
+yt-dlp --skip-download --write-subs --write-auto-subs --sub-langs "en.*" \
+  --sub-format vtt -o "%(id)s.%(ext)s" \
+  "https://www.youtube.com/watch?v=i18vpg0T-mk" \
+  "https://www.youtube.com/watch?v=6WLBmP-tZ0Q"
+
+# strip timestamps with the repo's existing VTT parser
+python3 -c "import sys;sys.path.insert(0,'.');from bycloud.ingest import parse_vtt;\
+print(' '.join(s['text'] for s in parse_vtt(open('data/videos/X.vtt').read())))"
+
+# the report's own checks
+test -s docs/A3B_EVERYWHERE.md
+grep -qi 'strata' docs/A3B_EVERYWHERE.md && grep -qi 'flash' docs/A3B_EVERYWHERE.md \
+  && grep -qi 'security' docs/A3B_EVERYWHERE.md && echo keywords-ok
+grep -q '| A3B ok' docs/A3B_EVERYWHERE.md && echo verdict-table-ok
+```
+
+**Real output from this tree:**
+
+```console
+$ wc -w data/videos/*.txt
+ 3259 data/videos/6WLBmP-tZ0Q.txt
+ 2661 data/videos/i18vpg0T-mk.txt
+ 5920 total
+
+$ grep -qi 'strata' docs/A3B_EVERYWHERE.md && grep -qi 'flash' docs/A3B_EVERYWHERE.md \
+  && grep -qi 'security' docs/A3B_EVERYWHERE.md && echo keywords-ok
+keywords-ok
+
+$ grep -q '| A3B ok' docs/A3B_EVERYWHERE.md && echo verdict-table-ok
+verdict-table-ok
+```
+
+Reused rather than rebuilt: the sales-brain caption path (`yt-dlp
+--skip-download --write-subs --write-auto-subs`) and this repo's
+`bycloud.ingest.parse_vtt` de-duplicator. The inventory search could not run in the
+sandbox (`state/vectors.json` is read-only), so the inventory Markdown was read
+directly. The prior-art check for the whole idea found only weak/indirect hits.
+
+**Short answer:** the A3B fits the single-request readers/scorers and the local lane,
+not the 3-way fan-out rankers or live sales; Strata + Qwen3.8-Flash-Next is smarter
+but needs 64 GB RAM and runs at ~40–65 tok/s on comparable 32 GB boxes, versus the
+A3B's 266–305 tok/s in 23.2 GB. Details and sources in the report.
+
+---
+
+# bycloud-ingest — deep pass over the bycloud channel
+
+Download bycloud's full public video catalogue (newest first), turn each video's
+English captions into a per-video transcript JSON, extract concepts/claims/papers
+with the local 27B, and map the concepts onto our own system in
+`docs/bycloud-upgrades.md`.
+
+Status (session 3): catalogue **257 videos / 43.19 h** (2020-10 → 2026-10, the
+videos tab; streams/VODs excluded), **252 transcripts / 42.69 h** in
+`data/private/bycloud/transcripts/`, 5 videos with no captions at all
+(`data/private/bycloud/no_captions.json`, ≤ 10 so no Whisper job). The local 27B
+batch finished all **252/252** answers; the re-armed `bycloud-assemble` GPU job
+wrote **252 rows / 1630 concepts (1439 grounded) / 1018 claims** to
+`data/bycloud-extracts.jsonl` (the script refuses a partial raw file, the failure
+mode of the first run). `docs/bycloud-upgrades.md` maps the extracted concepts to
+forge / agent-distill / lora-expert-bank / rl-extraction / merge-lab / the
+orchestrator with 44 grounded `[video_id@mm:ss] "quote"` citations. The 10 %
+spot-check (`docs/spot-checks.md`, bycloud deep-pass section) re-read 26 videos:
+164/164 concept quotes verbatim, 164/164 start times within 30 s, 97/97 claim
+numbers grounded in the transcript or the title. The catalogue ends below 100 h,
+so the whole catalogue is taken. The result file is tracked (the merged main repo
+must re-run the assert) but `export-ignore`d, like `data/kb-extracts.jsonl`, so
+the published tree carries no data dump.
+
+Reused rather than rebuilt: research-ingest's caption path (`yt-dlp
+--skip-download --write-info-json --write-subs --write-auto-subs`, English, vtt)
+and its already-downloaded caption cache (via `--reuse-dir`); only the
+per-video transcript schema and the rolling auto-caption de-duplication are new.
+
+## Install
+
+Python standard library only. Caption fetching needs `yt-dlp` (repo `.venv/bin`,
+`PATH`, `BYCLOUD_YTDLP`, or a local install); tests need only `pytest`.
+
+## Run
+
+```bash
+python3 -m bycloud catalogue                  # yt-dlp flat playlist -> catalogue.json + videos.json
+python3 -m bycloud captions --workers 3 --reuse-dir <caption-cache>
+python3 -m bycloud prompts --queue            # -> local_batch/bycloud-extract.yaml
+python3 -m bycloud status
+python3 -m pytest -q
+```
+
+On the GPU the runner serves the local batch, then submits
+`gpu_jobs/bycloud-assemble.job.yaml` (`script: bycloud/assemble_extract.py`), which
+parses each answer, adds `video_id`, re-grounds every concept quote against the
+transcript and writes `data/bycloud-extracts.jsonl`. The report check:
+
+```bash
+python3 ~/theprojects/orchestrator/bin/check_grounded_report.py \
+  docs/bycloud-upgrades.md data/private/bycloud/transcripts 20 0.9
+```
+
+Real output from this repo:
+
+```console
+$ python3 -m bycloud catalogue
+catalogue: 257 videos, 43.19 h -> data/private/bycloud/catalogue.json
+
+$ python3 -m bycloud status
+catalogue=257 transcripts=252 (42.7 h) total_hours=43.19 no_captions=5
+
+$ python3 -m bycloud prompts --queue
+prompts: 252 -> local_batch/bycloud-prompts.jsonl and local_batch/bycloud-extract.yaml
+
+$ python3 -c "import json,glob;t=[json.load(open(f)) for f in glob.glob('data/private/bycloud/transcripts/*.json')];h=sum(x['duration_s'] for x in t)/3600;c=json.load(open('data/private/bycloud/catalogue.json'));assert len(t)>=136 and h>=0.95*min(100,c['total_hours']) and all(len(x['segments'])>0 for x in t),(len(t),round(h,1),c['total_hours'])"
+(exit 0)
+
+$ python3 -c "import json;r=[json.loads(l) for l in open('data/bycloud-extracts.jsonl')];assert len({x['video_id'] for x in r})>=136,len(r);print(len(r),'rows')"
+252 rows
+
+$ python3 ~/theprojects/orchestrator/bin/check_grounded_report.py docs/bycloud-upgrades.md data/private/bycloud/transcripts 20 0.9
+grounded citations: 44/44 (1.00); need >= 20 and >= 0.9
+
+$ python3 -m pytest -q
+83 passed
+```
+
+---
+
+# small-vs-big — R7: small specialists vs one 27B in a coding role
+
+One agent harness (fixed `bash`/`read_file`/`write_file`/`finish` loop, 30 turns,
+32K context, per-episode wall-clock budget) runs the same 58 held-out repository
+tasks through seven arms on the RTX 3090: A the on-disk 27B, B the 27B with the
+caveman terse prompt, C the trained SERA-8B student, D terse student, E two LoRA
+experts on one SERA-8B base routed per repo, F the student→27B test-gated cascade,
+G SERA-8B with a middle block of decoder layers run twice. Every arm writes
+`state/small-vs-big/<arm>.json` from a runner GPU job; `docs/small-vs-big.md` holds
+the method and (next session) the table.
+
+Reused rather than rebuilt: agent-distill's fixed agent loop, 4-bit transformers
+backend and QLoRA trainer, its trained SERA-8B student adapter, the employee-shootout
+task set, and `prompts/caveman-system.txt` (see `docs/caveman.md`).
+
+## Install
+
+Python standard library only. The GPU jobs use the shared training venv
+(`~/theprojects/gpu/.venv`) with CUDA torch/transformers/peft; the offline tests
+need `pytest` and a local Qwen3 tokenizer snapshot only for the caveman test.
+
+## Run
+
+```bash
+python3 -m smallvsbig.tasks --force            # build the 58 task workspaces (offline, ~2 min)
+python3 smallvsbig/run.py --arm C --shard 0/4 --dry-run   # check task selection
+python3 smallvsbig/run.py --finalize all       # aggregate records -> state/small-vs-big/<arm>.json
+python3 smallvsbig/report.py                   # render the arm table
+python3 -m pytest -q
+```
+
+On the GPU the runner submits `gpu_jobs/r7-*.job.yaml` (training → arm shards →
+mop-ups → aggregate). Real offline output from this repo:
+
+```console
+$ python3 -m smallvsbig.tasks --force
+built 58/58 tasks -> state/small-vs-big/work
+
+$ python3 smallvsbig/run.py --arm A --shard 0/6 --dry-run
+[..] arm=A tasks=10
+inj-041cde230172 bugfix agent-distill
+job-radar-d44fcbe9 feature shootout
+...
+```
+
+---
+
+# research-memory — R8 memory, context & KV-cache landscape
+
+Survey of ways to give a compute-limited agent better memory and a better context window
+on one 24 GB GPU, judged against the plain baseline we already run: `data/kb.sqlite`
+(SQLite) + `sqlite-vec` KNN + FTS5 + a cross-encoder reranker
+(`~/homelab/bin/rerank_service.py`). Inventory and the public repo finder ran first
+(no prior art to fork); the KB was used to ground the KV-cache/attention claims.
+
+- `docs/memory-landscape.md` — 30+ candidates across agent memory layers, code-aware
+  context servers, context compression, KV-cache techniques, small CPU
+  rerankers/retrievers, and tiny routing/"enough context?" classifiers. Each has a repo
+  URL, the licence read from the repo's own file, what it needs, claimed numbers, and an
+  **adopt / test / skip** verdict with the reason.
+- `docs/memory-shortlist.md` — the 5 to test first, each with a concrete test on our data
+  (past conversations, this repo, `kb.sqlite`) and the metric + decision rule.
+
+## How to check
+
+No install, no download and no network needed to read them; the two `done_when`
+assertions run offline from the repo root:
+
+```console
+$ test $(grep -c 'github.com/' docs/memory-landscape.md) -ge 20
+exit=0
+$ test $(grep -c '^## ' docs/memory-shortlist.md) -ge 5
+exit=0
+$ grep -c 'github.com/' docs/memory-landscape.md
+38
+$ grep -c '^## ' docs/memory-shortlist.md
+6
+```
+
+The shortlist names the tests to queue next; none is fetched or installed here. Model
+downloads > 1.5 GB go through the cost gate before any fetch.
+
+Reused: the local `rerank_service` and `embed_semantic` (from the inventory) as the
+reranking/embedding baseline, and the `prior_art` finder as the first check. This
+session adds only the two documents.
+
+---
+
+# caveman-terse — terse output prompt + offline token-savings measurement
+
+Adopt the [caveman](https://github.com/JuliusBrussee/caveman) "talk terse" idea for our
+small-model runs, adapted to this harness, and size the win on our own transcripts
+before spending any GPU time.
+
+- `docs/caveman.md` — what upstream caveman does, its exact prompt rules, claimed
+  savings (65% average vs verbose output), licence (Apache-2.0 since 3.0.0; README badge
+  still says MIT), and the risks (tool-call JSON, code, test output, negations).
+- `prompts/caveman-system.txt` — drop-in system-prompt add-on. Scope is explicit:
+  **prose and reasoning only**; tool-call arguments, code, file contents, commands,
+  paths, numbers and error text stay byte-exact.
+- `tools/caveman/extract_turns.py` — deterministic selection of real assistant turns
+  from the saved orchestrator transcripts (read-only, 120–1100 chars of prose,
+  structured-JSON messages excluded, round-robin over sessions).
+- `tools/caveman/rewrites.json` — the DeepSeek caveman rewrite of each turn's prose
+  segments (real names sanitised out; fenced code untouched).
+- `tools/caveman/measure.py` — tokenizes before/after with the **Qwen3 tokenizer**
+  and writes `state/caveman-savings.json`.
+- `tests/test_caveman.py` — 9 offline stdlib tests (artifact shape, prose-only
+  reassembly, fence byte-exactness).
+
+## Install / run
+
+No new runtime dependency: the artifacts are committed stdlib/JSON. Rebuilding the
+measurement needs `transformers` and a local Qwen3 snapshot (the shared GPU venv has
+both; no network, CPU only):
+
+```bash
+python3 tools/caveman/extract_turns.py --limit 40          # -> state/caveman-turns.raw.json (gitignored)
+~/theprojects/gpu/.venv/bin/python tools/caveman/measure.py
+python3 -m pytest -q
+```
+
+## Real example
+
+One measured turn (real orchestrator transcript; prose only rewritten):
+
+```
+before: The selftest passed, the change is minimal (single-file edit inside
+        `bin/bets_due.py`), and it's already committed.  What now works: running
+        `bin/bets_due.py selftest` prints `[ok]` and proves the core rule -- an
+        unmeasurable bet is recorded as undecidable, never as a loss.
+after:  Selftest pass. Change minimal (1 file, `bin/bets_due.py`). Committed.
+        Works now: `bin/bets_due.py selftest` prints `[ok]`; unmeasurable bet
+        recorded undecidable, never a loss.
+```
+
+Result over 40 turns (`state/caveman-savings.json`):
+
+```console
+$ ~/theprojects/gpu/.venv/bin/python tools/caveman/measure.py
+n_turns=40 before=3768 after=3323 saving=11.81% -> state/caveman-savings.json
+
+$ python3 -c "import json;r=json.load(open('state/caveman-savings.json'));assert r['n_turns']>=30 and 0<r['saving_pct']<100,r;print(r['n_turns'],r['saving_pct'])"
+40 11.81
+```
+
+**11.81%** incremental saving on top of our already-terse harness style, with all
+payload (code, paths, numbers, errors) byte-exact. Upstream's 65% is measured against
+verbose output; our baseline already drops most filler, so the remaining headroom is
+payload. The on-GPU correctness test is the launch kit's job, not this measurement.
+
+Reused: the prompt rules and always-on snippet from JuliusBrussee/caveman (Apache-2.0),
+adapted in `prompts/caveman-system.txt`; the transcript corpus and its extraction are
+new here.
+
+---
+
+# AI research pipeline — R0 looped-LM deep-dive · R1 channel registry · R2 video ingest · R3 lens + digest · R4 experiment cards
+
+This repo hosts the AI-research pipeline work ("most intelligence per GPU"): **R0**, a
+looped/recurrent-depth language-model deep-dive with a real RTX 3090 test, **R1**, a
+channel registry, **R2**, the caption/metadata ingest and knowledge base built on
+the R1 kept list, **R3**, the "gains under limits" lens score over that knowledge
+base with a top-50 digest and five experiment cards, and **R4**, those five cards
+run as provenance-checked GPU jobs. Each project below is
+self-contained.
+
+# research-ingest — R2 video ingest + knowledge base
+
+Part of the **AI research pipeline** (`docs/PLAN.md` §5 steps 1–3). From the 35 **kept**
+channels in `data/channels.json` (built by R1), it collects, for every video of the last
+24 months:
+
+1. **metadata** — a yt-dlp flat playlist per channel (id, title, date, duration, views),
+   then the per-video info json (full description + links). No video is downloaded.
+2. **captions** — English manual/auto VTT, captions only, into `data/private/captions/`
+   (gitignored).
+3. **extraction** — one prompt per video written by DeepSeek, served by the runner to
+   the local `qwen3.8-27b-uncensored:latest` through `local_batch/ingest-extract.yaml`;
+   the batch writes `data/kb-extracts.jsonl` — the only extraction file. Per video it
+   asks for methods named, claims with the numbers stated, arXiv ids and repos cited,
+   hardware/compute mentioned, and the audience.
+4. **knowledge base** — `data/kb.sqlite`, built by `airesearch/kb.py` from the batch
+   output only: tables `videos`, `claims`, `papers`, `methods`, `links`; every claim
+   keeps its video id and a `[MM:SS]` timestamp when the captions give one.
+
+`docs/spot-checks.md` records a ≥10% manual check of the model's answers by video id.
+
+## Install and run
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt   # yt-dlp + pytest
+
+# 1. enumerate every video of the kept channels in the last 24 months (network, resumable)
+.venv/bin/python -m airesearch.ingest enumerate --months 24 --workers 6
+# 2. per-video description/links + English captions (network, resumable)
+.venv/bin/python -m airesearch.ingest captions --workers 10
+# 3. merge metadata + captions into the private corpus (offline)
+python3 -m airesearch.ingest corpus
+# 4. write the local-batch prompts and queue the extraction (offline)
+python3 -m airesearch.prompts --cap 4000 --queue
+# 5. after the runner serves the batch: build and check the knowledge base (offline)
+python3 -m airesearch.kb build
+python3 -m airesearch.kb stats
+# 6. audit a 10 % sample of the answers and rewrite docs/spot-checks.md (offline)
+python3 tools/spotcheck.py
+
+python3 -m pytest -q                        # offline tests
+```
+
+## Layout
+
+```
+airesearch/ingest.py             yt-dlp enumerate + per-video info/captions + corpus
+airesearch/prompts.py            corpus -> local_batch/ingest-prompts.jsonl (+ yaml)
+airesearch/kb.py                 data/kb-extracts.jsonl -> data/kb.sqlite
+tools/spotcheck.py               grounds a 10 % sample -> docs/spot-checks.md (read-only)
+local_batch/ingest-extract.yaml  the runner-served extraction request
+data/kb-extracts.jsonl           batch output (provenance-checked; export-ignored)
+data/kb.sqlite                   knowledge base (tracked for done_when; export-ignored)
+data/private/                    raw metadata + captions cache (gitignored)
+docs/spot-checks.md              DeepSeek's spot-check of the model's output
+```
+
+`data/kb-extracts.jsonl` counts only because the runner's Ollama batch wrote it
+(`provenance.py`); a session never creates or edits it. `data/kb.sqlite` is derived from
+that file and is marked `export-ignore`, so it travels into the merged tree but stays out
+of published exports.
+
+## Example output
+
+Real output of step 1 (2026-10-02; `data/private/` cache is gitignored):
+
+```
+enumerating 35 kept channels, months=24, start=2024-10-01
+  OK   neuro-dump                          1 videos
+  OK   Machine Learning Street Talk      160 videos
+  OK   IBM Technology                    817 videos
+  OK   AI Engineer                      1200 videos
+  OK   Wes Roth                          722 videos
+  ...
+total videos in window: 7077
+```
+
+Status: steps 1–4 done for 3 246 videos (metadata + captions + corpus + prompts); the
+runner served `local_batch/ingest-extract.yaml` to the local 27B and wrote
+`data/kb-extracts.jsonl` (provenance-checked, sha256 in the orchestrator ledger). Step 5
+(`data/kb.sqlite`) and `docs/spot-checks.md` are complete; `DONE.md` records the run.
+Real output of steps 3–5:
+
+```
+corpus: 7077 videos, 3242 with description, 3198 with captions -> data/private/ingest/corpus.jsonl
+prompts: 3246 (of 3246 eligible), 3198 with transcript -> local_batch/ingest-prompts.jsonl
+queued: local_batch/ingest-extract.yaml -> data/kb-extracts.jsonl
+built videos=3246 claims=11216 papers=632 methods=18610 links=3024
+videos=3246 claims=11216 claim_videos=3224 papers=632 arxiv_ids=488 methods=18610 links=3024
+spot-checks: 325/3246 videos -> docs/spot-checks.md
+```
+
+`tools/spotcheck.py` grounds a fixed 10 % sample of the batch answers against the exact
+prompts stored in `local_batch/ingest-prompts.jsonl`; `docs/spot-checks.md` adds a manual
+read of twenty videos and lists the pipeline limitations the audit exposed.
+
+Reused from prior art: R2 does not rebuild ingestion — it extends the R1 `airesearch`
+package (the `data/channels.json` kept list, the `data/private/` yt-dlp cache layout) and
+reuses the R0 `export-ignore` mechanism so `data/kb.sqlite` and `data/kb-extracts.jsonl`
+survive the merge yet stay out of published exports.
+
+# research-looped-lm — R0 deep-dive: looped language models (Ouro)
+
+What this is: a research deep-dive into **looped / recurrent-depth language models** — the
+architecture behind ByteDance's **Ouro** checkpoints — with a real test on our RTX 3090. It
+answers the project's one question: *what gives the most capability per unit of compute for
+someone with one 24 GB GPU?*
+
+Read the two summaries first:
+
+- [`docs/looped-lm.md`](docs/looped-lm.md) — faithful summary of *Scaling Latent Reasoning via
+  Looped Language Models* ([arXiv 2510.25741](https://arxiv.org/abs/2510.25741)): method
+  (weight-tied loops, entropy-regularized exit gate, two-stage gate training), every results
+  table, the knowledge-capacity-vs-manipulation evidence, the honest Appendix D counter-result,
+  and what it means for a 24 GB card (capability/parameter, test-time compute, VRAM, latency).
+- [`docs/neuro-dump-video.md`](docs/neuro-dump-video.md) — our own timestamped summary of the
+  NeuroDump video (<https://www.youtube.com/watch?v=pDsTcrRVNc0>, captions fetched with
+  `yt-dlp` into gitignored `data/private/`), plus a claim/evidence/code/compute card for every
+  paper linked from its description and captions.
+- [`docs/next-experiments.md`](docs/next-experiments.md) — three experiment cards (Distill
+  extraction, adaptive-exit agent loops, inference-time layer repetition) sized to the 3090.
+
+## Layout
+
+```
+docs/                  paper + video summaries, next experiments
+benchmark/             generator output only (loop-eval-v1.jsonl is gitignored, regenerated on demand)
+tools/make_benchmark.py   deterministic generator of the 200 authored 4-way MCQ items (100 arithmetic, 100 knowledge); --check verifies determinism
+tools/looped_eval.py      the 3090 evaluation; the only writer of state/looped-eval.json
+fetch/*.yaml              HF checkpoints the runner downloads before the GPU job
+gpu_jobs/looped-eval.job.yaml   queues tools/looped_eval.py on the RTX 3090
+tests/                 offline pytest suite
+```
+
+## Install and run (offline)
+
+```bash
+python3 -m pip install -r requirements.txt   # optional; tests use only pytest
+python3 -m pytest -q                         # 5 tests, no network, no GPU
+python3 tools/make_benchmark.py --check      # determinism check (also verifies the file if present)
+```
+
+Real output of the check and the tests:
+
+```
+$ python3 tools/make_benchmark.py --check
+OK benchmark/loop-eval-v1.jsonl (200 items, generated on demand)
+
+$ python3 -m pytest -q
+.....                                                                    [100%]
+```
+
+Both exit 0 (the `-q` in `pytest.ini` suppresses pytest's summary line). The generated `.jsonl` is
+not committed: `--check` verifies determinism (and the file if present), while the tests and
+`tools/looped_eval.py` rebuild the items in memory when the file is absent. Output paths are
+printed repo-relative, so no committed transcript contains an absolute home path.
+
+## The 3090 evaluation (ran; result in `state/looped-eval.json`)
+
+`gpu_jobs/looped-eval.job.yaml` ran on the RTX 3090 after the runner downloaded `fetch/*.yaml`.
+`tools/looped_eval.py` scored all 200 `benchmark/loop-eval-v1.jsonl` items by length-normalised
+log-likelihood at `total_ut_steps` 1/2/4/8 for `ByteDance/Ouro-2.6B`, 1/4 for `Ouro-1.4B` and
+`Ouro-2.6B-Thinking`, plus `Qwen/Qwen3-1.7B` as the non-looped baseline, and wrote
+`state/looped-eval.json` (n=200, 9 runs). Accuracy / arithmetic-subset accuracy / throughput:
+
+| model | loops | acc | arith | tok/s | VRAM |
+|---|---:|---:|---:|---:|---:|
+| Ouro-2.6B | 1 | 0.695 | 0.39 | 5868 | 5.53 GB |
+| Ouro-2.6B | 2 | 0.830 | 0.66 | 3396 | 5.53 GB |
+| Ouro-2.6B | 4 | 0.915 | 0.83 | 1698 | 5.53 GB |
+| Ouro-2.6B | 8 | 0.920 | 0.84 | 844 | 5.53 GB |
+| Ouro-1.4B | 1 | 0.675 | 0.41 | 12313 | 3.06 GB |
+| Ouro-1.4B | 4 | 0.835 | 0.67 | 3286 | 3.06 GB |
+| Ouro-2.6B-Thinking | 1 | 0.685 | 0.39 | 6410 | 5.53 GB |
+| Ouro-2.6B-Thinking | 4 | 0.890 | 0.78 | 1661 | 5.53 GB |
+| Qwen3-1.7B (non-looped) | 1 | **0.800** | 0.62 | 10243 | 3.98 GB |
+
+Takeaways: extra loops buy a lot on multi-step arithmetic (2.6B base: 0.39 → 0.84 accuracy,
+T=1 → T=8) and are nearly free in VRAM; throughput falls ~linearly with loops (5868 → 844 tok/s);
+returns are strongly diminishing past T=4 (+0.005 accuracy for 2× compute). The looped 1.4B at
+T=4 (0.835) beats the same-size non-looped Qwen3-1.7B (0.800), i.e. local evidence for the
+paper's test-time-compute-via-loops claim. Our knowledge half is saturated (0.94–1.0 for every
+model) and measures very little; it is the arithmetic half that separates models.
+
+`state/looped-eval.json` may only be written by that GPU job (provenance ledger); nothing in a
+CPU session touches it.
+
+The checkpoints ship custom `modeling_ouro.py` written for `transformers==4.54`, while the 3090
+queue's shared venv is `transformers==5.17`. We verified on CPU (random-weight tiny config) that
+three in-process shims make it run, and `tools/looped_eval.py` applies them automatically:
+
+```
+MODEL OK 26479105
+FORWARD OK (1, 4, 49152)
+GENERATE OK [[1, 2, 3, 4, 30624, 30624, 15455, 27974]]
+LOOPS4 OK (1, 4, 49152)
+```
+
+## What was reused / prior art
+
+The runner's `PRIOR_ART.md` is for the *channel registry* idea (R1) and reports prior art for
+that, not for looped LMs; nothing in it applies to R0, so no code was forked. What we did reuse is
+the repo's existing plan (`docs/PLAN.md` §3) and the queue's job conventions (`fetch/*.yaml`,
+`gpu_jobs/*.job.yaml`). The arXiv API and Hugging Face model API were used to identify the paper,
+the four Ouro checkpoints and the size-matched baseline. No existing Ouro evaluation script was
+found in the queue, so `tools/looped_eval.py` and the benchmark generator are new.
+
+## Honesty notes
+
+- The paper does not report GPU model, count, hours or FLOPs anywhere we could find; all
+  reproduction-cost estimates are ours and labelled as such.
+- Appendix D.1 of the paper is a counter-result: at matched small scale, standard non-looped
+  models beat LoopLM and the gap grows with recurrent depth. That is a *training-compute-matched*
+  comparison, not an inference-time one; our local sweep of a trained checkpoint at T=1…8 shows
+  the opposite direction (more loops → better), which is the paper's own test-time claim.
+- Captions and raw datasets are not committed (`data/private/` is gitignored); the benchmark is
+  authored by us, not downloaded.
+
+---
+
+# research-channels — R1 channel registry
+
+Part of the **AI research pipeline** ("most intelligence per GPU", `docs/PLAN.md`).
+This repo answers one narrow question for the rest of the pipeline:
+
+> Which YouTube channels reliably cover AI models, training tricks, tools and the
+> theory behind them in a way that is useful to someone with **one 24 GB GPU**?
+
+It builds a registry of channels with a reproducible score, so the later ingest
+stage (R2) knows what to download captions from.
+
+## What it does
+
+1. **Discover** — seeds (`docs/PLAN.md` §4.1), the hand list (§4.2) and an
+   expansion list (§4.3) live in `airesearch/sources.py`.
+2. **Sample** — for each channel, the latest 20 videos are fetched with
+   `yt-dlp` (flat metadata only; **no videos are downloaded**). Raw metadata is
+   cached in `data/private/` (gitignored).
+3. **Extract** — deterministic fields from title + description: method names
+   (LoRA, QLoRA, distillation, MoE, speculative decoding, …), numeric claims,
+   linked papers (arXiv / Papers with Code / HF papers / DOI), compute terms
+   (GPU, VRAM, 24 GB, consumer hardware, …), evidence terms and caption
+   availability. No LLM is involved in the committed score.
+4. **Score** — `airesearch/score.py` implements the §2 lens as a fixed weighted
+   sum (methods 25, numbers 20, papers 20, compute 15, evidence 10, captions 10).
+   A channel is **kept** when its sample scores at least 70% of the median seed
+   score ("scores like the seeds").
+5. **Write** — `data/channels.json` (machine) and `docs/channels.md` (ranked kept
+   list, one line per channel on why it helps a limited-compute builder).
+
+## Install
+
+Python 3 standard library is enough to build the registry and run the tests.
+`yt-dlp` is only needed to *fetch* new channels:
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+```
+
+## Run
+
+```bash
+# 1. fetch latest-20 metadata per channel into data/private/ (network + yt-dlp)
+.venv/bin/python -m airesearch.fetch --limit 20 --workers 6
+
+#    optional: also write English VTT captions to data/private/captions/
+#    (slower; no media is downloaded) -- intended for the R2 ingest pass
+.venv/bin/python -m airesearch.fetch --limit 20 --workers 6 --only seed --captions
+
+# 2. build the committed registry (offline, uses the cache)
+python3 -m airesearch.registry
+
+# 3. topic-sweep discovery for PLAN 4.3 expansion (network, writes only private data)
+.venv/bin/python -m airesearch.discover --per-term 20
+
+# 4. tests (offline, synthetic fixtures only)
+python3 -m pytest -q
+```
+
+## Layout
+
+```
+airesearch/sources.py    seed / candidate / expansion channel lists
+airesearch/fetch.py      yt-dlp channel sampler + private cache (+ --captions)
+airesearch/discover.py   PLAN §4.3 topic sweeps -> data/private/discovery.json
+airesearch/extract.py    deterministic field extraction + lexicons
+airesearch/score.py      PLAN §2 lens as a pure function
+airesearch/registry.py   builds data/channels.json + docs/channels.md
+docs/PLAN.md             the project plan (source of the lens and channel lists)
+docs/channels.md         generated kept-channel list
+data/channels.json       generated registry (tracked; excluded from exports)
+data/private/            raw metadata + captions cache (gitignored)
+```
+
+`data/channels.json` is a generated machine-readable dump: it stays tracked so
+the offline pipeline works from a checkout, but `.gitattributes` marks it
+`export-ignore`, so `git archive` and published tarballs leave it out.
+
+## Prior art
+
+The runner's `PRIOR_ART.md` search found no reusable channel-registry code
+(the hits were unrelated high-star repos with weak textual overlap). This repo
+builds on the prior art that does fit: `yt-dlp` for YouTube metadata and the
+lens/source lists already written in `docs/PLAN.md`.
+
+## Example output
+
+Real output of `python3 -m airesearch.registry` after fetching 85 channels:
+
+```
+channels=62 seeds=6 kept=35 threshold=15.97 skipped=23
+```
+
+Top of the generated `docs/channels.md`:
+
+```
+- **neuro-dump** — score 56.6, 1 video (seed) — https://www.youtube.com/channel/UCMHBJH5rX2dF1S7o-fJuY-A — Latest videos cover latent, looped, reasoning; frequent compute angle: parameters.
+- **Machine Learning Street Talk** — score 55.2, 20 videos (candidate) — https://www.youtube.com/@MachineLearningStreetTalk — Latest videos cover agents, diffusion, reasoning; frequent compute angle: cost, edge, efficiency.
+- **Yannic Kilcher** — score 47.7, 20 videos (candidate) — https://www.youtube.com/@YannicKilcher — Latest videos cover transformer, reasoning, attention; frequent compute angle: parameters, efficiency, cost.
+```
+
+One entry of `data/channels.json`:
+
+```json
+{
+ "name": "neuro-dump",
+ "url": "https://www.youtube.com/channel/UCMHBJH5rX2dF1S7o-fJuY-A",
+ "videos_sampled": 0,
+ "videos_available": 1,
+ "score": 56.62,
+ "kept": true,
+ "reason": "kept: score 56.6 vs seed bar 16.0; ~5.0 methods, ~0.0 numbers, ~6.00 paper links/video, captions 100%.",
+ "seed": true,
+ "provenance": "seed",
+ "top_methods": ["latent", "looped", "reasoning", "reinforcement learning", "scaling laws"]
+}
+```
+
+Topic-sweep discovery (`python3 -m airesearch.discover`) found **201 unique channels**,
+**178 not already in the source lists** — those are the R2 expansion candidates.
+
+Note: `videos_sampled` is `0` only for the seed `neuro-dump`, which has a single
+listed video; `videos_available` records that. It is retained because the owner named
+it as the looped-LM source.
+
+# research-digest — R3 "gains under limits" lens + top-50 digest
+
+Part of the **AI research pipeline** (`docs/PLAN.md` §2 lens and §5 steps 4 and 6). It
+reads the R2 knowledge base `data/kb.sqlite` and turns it into a ranked reading list for
+one RTX 3090. No LLM is in the final score and no randomness is used: rebuilding from the
+same KB gives byte-identical output.
+
+| Path | What |
+|---|---|
+| `airesearch/taxonomy.py` | the visible technique taxonomy: one profile per family with the four gain axes, cost in 3090 GPU-hours, theme and transfer areas |
+| `airesearch/lens.py` | canonicalise + cluster the KB's methods, score each cluster, render the digest |
+| `data/lens.json` | machine dump: every ranked cluster with all seven components and its evidence links |
+| `docs/digest.md` | top 50, grouped by theme, one line each with YouTube-timestamp + arXiv links, a paper index and a component table |
+| `docs/experiments/` | 5 experiment cards for the top items not yet tested by us (looped LMs are already in `docs/looped-lm.md`) |
+| `tests/test_lens.py` | 6 offline tests (synthetic in-memory KB, no network) |
+
+## Install and run
+
+Python 3 standard library only — no new dependency. `data/kb.sqlite` must exist (R2).
+
+```bash
+python3 -m airesearch.lens build     # writes data/lens.json + docs/digest.md
+python3 -m airesearch.lens top 20    # print the ranked list
+python3 -m pytest -q                 # 28 tests
+```
+
+## How the score works
+
+Every model-extracted method is canonicalised, folded onto a taxonomy family, and the
+family is joined to every claim, paper, repo link and channel of its member videos.
+
+```
+gain     = 0.30·param + 0.30·flop + 0.25·ttc + 0.15·data
+transfer = 100·(0.6·areas/3 + 0.4·videos/8)
+evidence = 100·(0.35·papers/3 + 0.25·repos/3 + 0.20·numbers/15 + 0.20·channels/8)
+priority = gain × (0.40 + 0.60·transfer/100) ÷ √max(cost_hours, 0.25)
+           × (0.55 + 0.45·evidence/100) × 10
+```
+
+`param`/`flop`/`ttc`/`data` come from the technique's family profile in
+`airesearch/taxonomy.py` (a judgement about the technique, written down so it can be
+changed and re-run); `cost_hours` is that family's estimated 3090 GPU-hours; evidence is
+always counted from the KB. The full numbers are in the component table in
+`docs/digest.md` and in `data/lens.json`.
+
+## Example output
+
+```console
+$ python3 -m airesearch.lens build
+eligible clusters: 100
+ 1. 1170.00  Chain of Thought
+ 2. 1130.00  Prompt Engineering
+ 3. 1061.70  In-Context Learning
+ 4.  862.67  RAG
+ 5.  765.11  Tool Use
+ 6.  731.86  Embeddings
+ 7.  681.30  context engineering
+
+$ python3 -m airesearch.lens top 5
+ 1. 1170.00  Chain of Thought  (videos=77, papers=41)
+ 2. 1130.00  Prompt Engineering  (videos=57, papers=14)
+ 3. 1061.70  In-Context Learning  (videos=13, papers=14)
+ 4.  862.67  RAG  (videos=121, papers=18)
+ 5.  765.11  Tool Use  (videos=58, papers=2)
+
+$ grep -c '^- ' docs/digest.md
+261
+$ grep -c 'arxiv.org/abs/' docs/digest.md
+250
+$ ls docs/experiments/*.md | wc -l
+6
+```
+
+One digest line, verbatim:
+
+```markdown
+- **QLoRA** — 4-bit frozen base + LoRA adapters fine-tunes 7B-13B (even 30B) in 24 GB `priority 366.6` · evidence: [video](https://www.youtube.com/watch?v=1N76mJ1pMro&t=231s) · [arXiv 2402.15116](https://arxiv.org/abs/2402.15116)
+```
+
+## What was reused / prior art
+
+- `airesearch/score.py` and the R1 §2 lens: the same "deterministic formula over
+  extracted fields, no LLM" pattern, promoted from per-channel to per-technique.
+- `data/kb.sqlite` and `airesearch/kb.py` (R2): clustering and evidence read only that DB.
+- The experiment-card shape of `docs/next-experiments.md` (R0) is reused for the five
+  cards, which reference the same 3090 and `local_batch/` fixtures.
+- The prior-art check (`~/theprojects/queue/prior-art`, cache `/tmp/prior-art`) returned
+  only weak/indirect hits (codebase-memory, OpenWiki, data-lens), nothing to fork.
+
+## Honesty notes
+
+- The axis numbers are a written taxonomy, not a measurement. They encode the PLAN §2
+  lens; the KB only supplies evidence. Change one integer and rebuild.
+- R2 extraction is noisy: claims are attached to every method the model named for a
+  video, so some evidence links are only co-located with a cluster. This is why axis
+  signals are counted from the method key, not from the full claim text, and why
+  `docs/digest.md` carries a noise caveat.
+- A digest item is a claim with sources, never a verified result. Only a GPU job in the
+  provenance ledger produces a result.
+
+---
+
+# research-setup-upgrades — R5 measured upgrades for our own box
+
+R5 turns the R2 knowledge base and the R4 verified results into **measured changes for
+this machine** (RTX 3090 24 GB, 30 GB RAM, Ollama, QLoRA), not a reading list.
+
+1. `tools/upgrades/candidates.py` + `tools/upgrades/shortlist.py` join a hand-reviewed
+   candidate list to a **deterministic query over `data/kb.sqlite`** (a timestamped video
+   claim and an arXiv paper per technique) and to the R4 verified results, and write
+   `docs/upgrades.md` — one line per candidate with source, expected gain, cost to try
+   (GPU-minutes, GB) and risk.
+2. The eight candidates that cost ≤30 GPU-min and ≤1.5 GB ran as
+   `gpu_jobs/upg-*.job.yaml`. Each trial measured the workload **before** and **after**
+   the change and wrote `state/upgrades/<name>.json`; only the runner's GPU jobs may
+   write those files. Two changes were adopted (`+18.3%` aggregate throughput from
+   parallel slots, `+44.8%` supervised tokens/s from QLoRA packing); six were rejected
+   with the measured reason.
+3. `docs/setup-changes.md` is the recommendation for the owner: exact Ollama env,
+   Modelfile params, `llama-server` flags and training args, each with its measured
+   gain, and the rejected changes with the measured reason. **No change is applied to
+   the live system by this project.**
+
+## Workloads measured
+
+- the local 27B bulk-text batch: 50 real R2 ingest prompts through the cached
+  `qwen3.8-27b-uncensored:latest` GGUF (tokens/s, KV-cache MB from the server log);
+- sales-brain deal extraction from call transcripts with the cached 9B (field-F1,
+  schema validity, latency);
+- one NF4 QLoRA step-time / peak-VRAM loop on the cached 9B base
+  `empero-ai/Qwen3.8-9B-Distill`.
+
+## Install and run
+
+```bash
+# offline: stdlib only for the shortlist/report; pytest for the tests
+python3 tools/upgrades/shortlist.py          # rebuild docs/upgrades.md from data/kb.sqlite
+python3 tools/upgrades/shortlist.py --check  # fail if docs/upgrades.md is stale
+python3 tools/upgrades/report.py             # markdown table of state/upgrades/*.json
+python3 -m pytest -q
+
+# each trial ran as: python3 tools/upgrades/trials.py --trial <name>  (<=30 GPU-min)
+ls gpu_jobs/upg-*.job.yaml                   # the 8 requests
+ls state/upgrades/*.json                     # the 8 job-written results
+```
+
+## Example output
+
+```text
+$ python3 tools/upgrades/shortlist.py
+wrote .../docs/upgrades.md (52 lines)
+
+$ grep -c '^## \|^- ' docs/upgrades.md
+25
+
+$ python3 tools/upgrades/report.py
+| trial | area | workload | change | change_pct | adopt |
+|---|---|---|---|---:|---|
+| parallel-batch | inference-speed | 27B bulk-text batch | --parallel 2 with two concurrent requests ... | 18.26 | true |
+| qlora-packing | fine-tune-efficiency | 9B QLoRA step | pack several short examples into one max_seq_length block ... | 44.79 | true |
+| flash-attention | inference-speed | 27B bulk-text batch | --flash-attn on | -0.34 | false |
+| speculative-draft | inference-speed | 27B bulk-text batch | --spec-type draft-simple -md Qwen3-0.6B-Q8_0.gguf | -0.61 | false |
+| ... (8 rows total) |
+
+$ python3 -m pytest
+......................................                                   [100%]
+53 passed in 0.14s
+```
+
+One shortlist line, verbatim (the KB source comes from `data/kb.sqlite`):
+
+```markdown
+- **flash-attention** · llama.cpp flash attention (-fa on) · source: KB video "Triton GPU Kernels Lesson #9 | Flash attention (part 1 - forward pass)" [00:00] https://www.youtube.com/watch?v=aDyfrArLPyw — "The video covers the forward pass of Flash Attention, with the backward pass to be covered" + arXiv 2205.14135 Flash Attention · expected: 10-40% faster prompt processing and ~5-20% faster decoding on long prompts · cost: 15 GPU-min, 0.0 GB · risk: low: numerically close to default attention; some quant types fused better than others · how: `llama-server -fa on; Ollama: OLLAMA_FLASH_ATTENTION=1` · **queued**
+```
+
+## What was reused / prior art
+
+- `tools/upgrades/fixtures.py` is the R4 experiment harness
+  (`research-experiments/tools/exp/common.py`) vendored almost verbatim: the sales-brain
+  hard-transcript fixture, the JSON extractor and the field-F1 scoring.
+- The R4 verified numbers in `docs/setup-changes.md` come from the sibling R4 results
+  (`docs/results.md` / `state/exp/*.json`), reused, not re-measured.
+- The `llama-server` control pattern (locate Ollama's GGUF blob + CUDA backend, start the
+  server with exact flags) is R4 card 4's, reused for the 27B trials.
+- The result-file shape and the "only a runner GPU job writes it" rule follow the R0–R4
+  provenance ledger.
+
+## Honesty notes
+
+- `state/upgrades/` holds the eight job-written results. The done checks verify the
+  schema; a session that hand-writes one fails the runner's provenance fingerprint.
+- `DONE.md` now carries the R5 section at the top; the R0–R3 sections below are
+  historical and stay for provenance.
+- The KB is noisy (R2 extraction over-merges claims), so a source line is the best
+  timestamped KB evidence for a technique, not proof the video is about it. Where the KB
+  had no match, the curated fallback source in `candidates.py` is used.
+- `nvidia-smi` inside the runner's bubblewrap namespace reports ~0 used VRAM, so the
+  llama.cpp trials read the KV/compute buffer sizes the server logs at startup instead.
+
+---
+
+# research-experiments — R4: run the five digest cards on the 3090
+
+`docs/experiments/*.md` (R3) states five smallest 24 GB tests. R4 turns each into a
+script that runs **inside the runner's GPU sandbox** and writes its own
+`state/exp/<card>.json`; no session ever writes those files. The runner records the
+sha256 of each output in the provenance ledger, so a hand-edited result fails
+verification.
+
+| Card | Job | Script |
+|---|---|---|
+| 1 CoT vs self-consistency | `gpu_jobs/01-cot-vs-self-consistency.job.yaml` | `tools/exp/card1_cot_self_consistency.py` |
+| 2 RAG vs QLoRA | `gpu_jobs/02-rag-vs-qlora.job.yaml` | `tools/exp/card2_rag_vs_qlora.py` |
+| 3 4-bit format bake-off | `gpu_jobs/03-quantization-format-bakeoff.job.yaml` | `tools/exp/card3_quant_formats.py` |
+| 4 speculative decoding | `gpu_jobs/04-speculative-decoding.job.yaml` | `tools/exp/card4_speculative.py` |
+| 5 compiled prompts | `gpu_jobs/05-compiled-prompts.job.yaml` | `tools/exp/card5_compiled_prompts.py` |
+
+## Install and run
+
+Nothing to install beyond the test runner; the jobs use the shared GPU venv.
+
+```sh
+# offline unit tests for the harness (no GPU, no Ollama needed)
+python3 -m pytest -q
+
+# the runner submits each job after the session; to inspect what a job would run:
+python3 -c "import yaml;print(yaml.safe_load(open('gpu_jobs/01-cot-vs-self-consistency.job.yaml')))"
+```
+
+Each card reads its model from the local Ollama store or the HF cache. Card 4's
+0.64 GB Qwen3-0.6B draft (`fetch/qwen3-0.6b-gguf.yaml`) failed to download (peer
+closed at 466/639 MB, then DNS failures), so card 4 records the missing draft in
+`errors` and measures only the 0 GB `ngram-simple` alternative. Cards 1, 3, 4 and
+5 are verified; card 2's corrected job is queued (it crashed twice on
+`apply_chat_template` returning a `BatchEncoding`).
+
+## Example result (real, verified)
+
+Every card writes the same object (this is the schema the runner's done-check
+asserts). This is the verified card 3 output, abridged:
+
+```json
+{
+  "card": "03-quantization-format-bakeoff",
+  "hypothesis": "a 4-bit GGUF keeps >=97% of BF16 field-F1 while decoding >=1.5x faster ...",
+  "metric": "field micro-F1 vs BF16, tokens/s, peak VRAM (GB), cold-load seconds",
+  "n": 250,
+  "arms": [
+    {"name": "bf16", "score": 96.08, "tokens_per_s": 44.78, "vram_gb": 16.06},
+    {"name": "q4_k_m", "score": 97.2, "tokens_per_s": 95.6, "vram_gb": 5.23}
+  ],
+  "pass": true,
+  "gpu_minutes": 8.5
+}
+```
+
+The verified numbers and the per-card verdicts are written to `docs/results.md`;
+`docs/orbit-outlines.md` turns them into three ORBIT episode outlines.
+
+## What was reused
+
+- The `gpu_jobs/*.job.yaml` + provenance-ledger pattern from R0/R1: a claim is a result
+  only when the runner's job wrote the file.
+- The easy five-field extraction task from `docs/next-experiments.md`, re-authored here
+  as a deterministic fictional generator (`tools/exp/common.py`) so no real data is
+  committed.
+- The **sales-brain synthetic call corpus** (`~/theprojects/queue/sales-brain/data/synthetic`,
+  read at job runtime, never committed) as the hard task cards 1/5/4 are rerun on:
+  7 deal fields from Latvian call transcripts, where the 9B is far from perfect.
+- The **Ollama-bundled llama-server** (`~/ollama/lib/ollama/llama-server`) for card 4,
+  which is the only offline way to get `--model-draft` on the cached 27B GGUF.
+- The prior-art check for this idea (`prior_art check`, cache `/tmp/prior-art`) returned
+  `already built` on the phrase match but with only weak/indirect hits (top similarity
+  0.48), nothing to fork.
+
+## Honesty notes
+
+- The cards ask for models that are not all cached; the scripts substitute the closest
+  available ones and say so in each result's `note`/`rule` fields (card 3 has two GGUF
+  formats offline, not four).
+- Card 4 was re-scoped by the owner (2026-10-03): no Qwen2.5-7B download. It now measures
+  the 27B bulk-text bottleneck with a 0.6B draft and, if the vocabularies differ, the
+  0 GB `--spec-type ngram-simple` alternative; greedy output identity is the lossless
+  check, because llama-server does not report a separate acceptance rate here. The draft
+  fetch failed, so the verified card 4 file has only the target-only and ngram arms.
+- Cards 1 and 5 hit a 97–100% ceiling on the first easy fixture, which cannot rank the
+  arms; both were re-run on the hard sales-brain transcripts and now carry real verdicts.
+  Card 2 crashed twice on the same `BatchEncoding` return-type change (n=0 both times);
+  its corrected job is re-queued. `docs/results.md` reports every run, wins and failures
+  alike.
+- `state/exp/*.json` are tracked (so they survive the merge into the main repo) but
+  `export-ignore`d, exactly like `state/looped-eval.json`.

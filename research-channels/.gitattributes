@@ -1,0 +1,4 @@
+# The channel registry dump is a generated data artifact (rebuild with
+# `python3 -m airesearch.registry`). Keep it in the repo for the offline
+# pipeline, but leave machine-readable data dumps out of published exports.
+data/channels.json export-ignore

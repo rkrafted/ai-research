@@ -1,0 +1,5 @@
+script: tools/exp/card5_compiled_prompts.py
+ollama: true
+timeout_minutes: 240
+vram_gb: 12
+after_fetch: []   # re-armed 2026-10-03: hard sales-brain task (hand prompt was 100%)

@@ -1,0 +1,5 @@
+# Arm E specialist 1/2: job-radar expert, QLoRA r16 on the job-radar teacher turns.
+script: smallvsbig/train_expert.py
+args: ["--repo", "job-radar", "--minutes", "120", "--max-length", "12288"]
+timeout_minutes: 240
+vram_gb: 20

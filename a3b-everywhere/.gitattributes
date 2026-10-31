@@ -1,0 +1,52 @@
+# The channel registry dump is a generated data artifact (rebuild with
+# `python3 -m airesearch.registry`). Keep it in the repo for the offline
+# pipeline, but leave machine-readable data dumps out of published exports.
+data/channels.json export-ignore
+
+# The looped-LM 3090 result is provenance-checked and must travel into the merged
+# tree (the runner re-runs done_when in the main repo), but it is still data: keep
+# it out of `git archive` so the raw-data/personal-data scans stay clean.
+state/looped-eval.json export-ignore
+
+# R2 extraction output (provenance-checked, written by the runner's local batch)
+# and the SQLite KB built from it. Both must travel into the merged tree for the
+# done_when assert, but they are data dumps: exclude them from published exports.
+data/kb-extracts.jsonl export-ignore
+data/kb.sqlite export-ignore
+
+# R3 lens dump (rank + per-axis components). Derived from the KB, rebuild with
+# `python3 -m airesearch.lens build`; exclude the machine-readable dump from
+# published exports while keeping docs/digest.md tracked.
+data/lens.json export-ignore
+
+# R5 upgrade trial results. Provenance-checked and needed by the done_when assert
+# in the merged main repo, but they are machine-written data: keep them out of
+# `git archive` so the raw-data/personal-data scans stay clean.
+state/upgrades/*.json export-ignore
+
+# R4 experiment results (state/exp/<card>.json). Provenance-checked and written by
+# the queued GPU jobs; they must travel into the merged tree because the runner
+# re-runs done_when there, but they are machine-readable result dumps: exclude
+# them from published exports so the raw-data scan stays clean.
+state/exp/*.json export-ignore
+
+# caveman-terse offline savings summary. Required by done_when in the merged tree,
+# but a machine-written data dump: keep it out of `git archive` so the raw-data
+# scan stays clean. The measurement inputs live under state/ (gitignored).
+state/caveman-savings.json export-ignore
+
+# The caveman rewrite mapping is tool input derived from transcripts (kept for the
+# offline tests). Sanitised prose, but a machine-readable data file: leave it out of
+# published exports like the other data dumps.
+tools/caveman/rewrites.json export-ignore
+
+# bycloud deep-pass extraction output (provenance-checked, written by the runner's
+# assemble GPU job from the 27B batch). It must travel into the merged tree for the
+# done_when assert, but it is a machine-readable data dump: keep it out of
+# `git archive` so the raw-data scan stays clean (same rule as data/kb-extracts.jsonl).
+data/bycloud-extracts.jsonl export-ignore
+
+# R7 small-vs-big per-arm results (state/small-vs-big/<arm>.json). Written by the
+# GPU jobs, provenance-checked and needed by done_when in the merged main repo,
+# but machine-readable result dumps: keep them out of `git archive`.
+state/small-vs-big/*.json export-ignore

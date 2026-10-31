@@ -1,0 +1,5 @@
+# Final R7 job: aggregate every arm's per-task records into state/small-vs-big/<arm>.json.
+script: smallvsbig/run.py
+args: ["--finalize", "all"]
+timeout_minutes: 20
+vram_gb: 1

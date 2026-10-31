@@ -1,0 +1,6 @@
+# R7 small-vs-big: --arm A --shard 3/6
+script: smallvsbig/run.py
+args: ["--arm", "A", "--shard", "3/6"]
+timeout_minutes: 240
+vram_gb: 18
+ollama: true

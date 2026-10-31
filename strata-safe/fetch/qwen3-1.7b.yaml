@@ -1,0 +1,8 @@
+# Non-looped ~1.7B baseline for gpu_jobs/looped-eval.job.yaml (used by the Ouro paper
+# itself as a size-matched baseline for the 1.4B model). Apache-2.0.
+hf: Qwen/Qwen3-1.7B
+include:
+  - "*.json"
+  - "*.txt"
+  - "*.safetensors"
+size_gb: 4.1

@@ -1,0 +1,5 @@
+script: tools/exp/card2_rag_vs_qlora.py
+ollama: true
+timeout_minutes: 240
+vram_gb: 8
+after_fetch: []   # re-armed 2026-10-03b: BatchEncoding fix + 200/60 split (n was 0)

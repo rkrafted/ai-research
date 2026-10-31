@@ -1,0 +1,8 @@
+# Ouro-2.6B-Thinking (reasoning SFT of the 2.6B LoopLM). Apache-2.0.
+hf: ByteDance/Ouro-2.6B-Thinking
+include:
+  - "*.json"
+  - "*.py"
+  - "*.txt"
+  - "*.safetensors"
+size_gb: 5.4

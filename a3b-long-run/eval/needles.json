@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "note": "Fictional facts only. @example.com and 555-01xx per repo rules. Inserted into real long contexts at the given fraction of the text.",
+  "facts": {
+    "invoice": {
+      "text": "Internal note: invoice KV-7741 was approved by Dana Rieksta on 2026-03-14. Reach her at dana.rieksta@example.com or 555-0142.",
+      "at": 0.08
+    },
+    "discount": {
+      "text": "Internal note: the pilot discount code ZIRGA-19 expires on 2026-11-30.",
+      "at": 0.08
+    },
+    "warehouse": {
+      "text": "Internal note: the Jelgava warehouse counted 3240 units on 2026-02-02.",
+      "at": 0.08
+    },
+    "audit_lead": {
+      "text": "Internal note: the audit lead is Marta Ozola (marta.ozola@example.com).",
+      "at": 0.08
+    },
+    "audit_date": {
+      "text": "Internal note: the audit deadline moved to 2026-12-04.",
+      "at": 0.9
+    }
+  },
+  "prompts": {
+    "needle": {
+      "facts": ["invoice", "discount", "warehouse"],
+      "questions": [
+        {"q": "What is the invoice reference and who approved it?", "answers": ["KV-7741", "Dana Rieksta"]},
+        {"q": "What is the pilot discount code and when does it expire?", "answers": ["ZIRGA-19", "2026-11-30"]},
+        {"q": "Which warehouse counted units, and how many?", "answers": ["Jelgava", "3240"]}
+      ]
+    },
+    "multihop": {
+      "facts": ["audit_lead", "audit_date"],
+      "questions": [
+        {"q": "Who is the audit lead, and when is the audit deadline?", "answers": ["Marta Ozola", "2026-12-04"]}
+      ]
+    }
+  }
+}

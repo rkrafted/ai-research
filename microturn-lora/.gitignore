@@ -1,0 +1,47 @@
+# Generated / local-only files.  The committed tree must pass the runner's
+# hygiene scan: no raw data, no databases, and no `state/` files.  Generated
+# artifacts stay on disk here (and under data/generated/) but never in git.
+__pycache__/
+.venv/
+*.pyc
+.pytest_cache/
+.scratch/
+node_modules/
+artifacts/
+.env
+.env.*
+
+data/private/
+data/generated/
+data/raw/
+data/*.json
+data/*.jsonl
+data/*.sqlite
+data/codacus/*.json
+state/
+tools/caveman/rewrites.json
+*.db
+*.sqlite
+*.safetensors
+*.gguf
+
+# Benchmark and local-batch inputs/outputs are generated on demand.
+benchmark/*.jsonl
+local_batch/.lock
+local_batch/*.log
+local_batch/*.exit
+local_batch/ingest-prompts.jsonl
+local_batch/bycloud-prompts.jsonl
+local_batch/codacus-prompts.jsonl
+data/bycloud-extracts-raw.jsonl
+data/codacus/extracts.jsonl
+
+# Job bookkeeping written by the runner.
+gpu_jobs/*.log
+gpu_jobs/*.exit
+gpu_jobs/*.started
+gpu_jobs/*.submitted
+gpu_jobs/*.reqhash
+fetch/*.log
+fetch/*.exit
+fetch/*.started

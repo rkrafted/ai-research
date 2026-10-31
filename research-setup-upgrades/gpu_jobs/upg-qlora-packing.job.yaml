@@ -1,0 +1,6 @@
+# R5 upgrade trial: 9B QLoRA packing: supervised tokens/s
+script: tools/upgrades/trials.py
+args: ["--trial", "qlora-packing"]
+timeout_minutes: 90
+vram_gb: 18
+after_fetch: []   # wait for no download; only the spec job needs the draft

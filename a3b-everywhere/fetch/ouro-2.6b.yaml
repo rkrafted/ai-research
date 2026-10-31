@@ -1,0 +1,9 @@
+# Ouro-2.6B base checkpoint (LoopLM, 48 layers, total_ut_steps=4). Apache-2.0.
+# Needed by gpu_jobs/looped-eval.job.yaml; includes the custom Ouro modeling code.
+hf: ByteDance/Ouro-2.6B
+include:
+  - "*.json"
+  - "*.py"
+  - "*.txt"
+  - "*.safetensors"
+size_gb: 5.4

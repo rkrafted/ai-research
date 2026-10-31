@@ -1,0 +1,5 @@
+# a3b KV sweep: fit + real long-context accuracy for each cache type.
+script: kvfrontier/measure.py
+args: ["--minutes", "220"]
+timeout_minutes: 240
+vram_gb: 23

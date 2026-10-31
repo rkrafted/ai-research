@@ -1,0 +1,8 @@
+# Ouro-1.4B base checkpoint (LoopLM, 24 layers, total_ut_steps=4). Apache-2.0.
+hf: ByteDance/Ouro-1.4B
+include:
+  - "*.json"
+  - "*.py"
+  - "*.txt"
+  - "*.safetensors"
+size_gb: 2.9

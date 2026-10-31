@@ -1,0 +1,52 @@
+data/private/
+local_batch/.lock
+# Benchmark is generated on demand by tools/make_benchmark.py (no committed raw data).
+benchmark/*.jsonl
+__pycache__/
+.venv/
+*.pyc
+.env
+.env.*
+# The 3090 result must survive the item->master merge: the runner re-runs done_when
+# in the MAIN repo, which never receives untracked/ignored worktree files. Track it,
+# but keep it out of published exports via the root .gitattributes (raw-data scan).
+state/*
+!state/looped-eval.json
+# caveman-terse: the offline savings summary is required by done_when and must
+# travel into the merged main repo. The raw transcript corpus stays ignored.
+!state/caveman-savings.json
+# R5 trial results are provenance-checked and must travel into the merged tree
+# (the runner re-runs done_when in the main repo). `state/*` alone would hide
+# them, so re-include the upgrades dir and its files.
+!state/upgrades/
+!state/upgrades/*.json
+# R4 experiment results: written by the queued GPU jobs, provenance-checked, and
+# must survive the item->master merge (the runner re-runs done_when in the main
+# repo), so track them; .gitattributes export-ignores them like looped-eval.json.
+!state/exp/
+state/exp/*
+!state/exp/*.json
+data/raw/
+*.db
+*.sqlite
+# The R2 knowledge base is a derived artifact needed by done_when in the merged
+# main repo (the runner re-verifies there); keep it tracked, export-ignored.
+!data/kb.sqlite
+node_modules/
+artifacts/
+gpu_jobs/*.log
+gpu_jobs/*.exit
+gpu_jobs/*.started
+gpu_jobs/*.submitted
+gpu_jobs/*.reqhash
+fetch/*.log
+fetch/*.exit
+fetch/*.started
+local_batch/*.log
+local_batch/*.exit
+# Large generated prompt file (multi-MB). The runner reads it from the worktree
+# when serving the batch; it is not needed in exports or in git.
+local_batch/ingest-prompts.jsonl
+.pytest_cache/
+*.safetensors
+*.gguf

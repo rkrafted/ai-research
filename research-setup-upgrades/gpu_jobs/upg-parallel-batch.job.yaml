@@ -1,0 +1,6 @@
+# R5 upgrade trial: --parallel 2 aggregate tokens/s on the 27B
+script: tools/upgrades/trials.py
+args: ["--trial", "parallel-batch"]
+timeout_minutes: 60
+vram_gb: 21
+after_fetch: []   # wait for no download; only the spec job needs the draft

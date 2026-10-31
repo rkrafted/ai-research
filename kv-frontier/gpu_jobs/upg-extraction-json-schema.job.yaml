@@ -1,0 +1,7 @@
+# R5 upgrade trial: sales-brain extraction: schema-constrained JSON on the 9B
+script: tools/upgrades/trials.py
+args: ["--trial", "extraction-json-schema"]
+timeout_minutes: 45
+vram_gb: 10
+ollama: true
+after_fetch: []   # wait for no download; only the spec job needs the draft

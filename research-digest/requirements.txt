@@ -1,0 +1,5 @@
+# Caption fetching for the NeuroDump video (results stay in gitignored data/private/).
+yt-dlp>=2026.8.19
+
+# Test runner. Tests use the standard library otherwise and run offline.
+pytest>=8

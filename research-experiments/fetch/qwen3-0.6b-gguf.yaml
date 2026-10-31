@@ -1,0 +1,8 @@
+# Qwen3-0.6B Q8_0 GGUF (~0.64 GB): speculative-decoding draft for the cached
+# qwen3.8-27B Q4_K_M used by gpu_jobs/04-speculative-decoding.job.yaml. If its
+# vocabulary does not match the target, the job records that and measures the
+# 0 GB ngram-simple alternative instead. Apache-2.0.
+hf: Qwen/Qwen3-0.6B-GGUF
+include:
+  - "Qwen3-0.6B-Q8_0.gguf"
+size_gb: 0.7

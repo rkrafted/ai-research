@@ -1,0 +1,6 @@
+# R7 small-vs-big: --arm C
+# Resumable: re-runs only tasks with no record yet (mops up timed-out shards).
+script: smallvsbig/run.py
+args: ["--arm", "C"]
+timeout_minutes: 240
+vram_gb: 12

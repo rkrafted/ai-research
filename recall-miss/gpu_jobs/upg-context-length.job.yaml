@@ -1,0 +1,6 @@
+# R5 upgrade trial: serve context 8192 -> 2048 on the 27B (KV VRAM)
+script: tools/upgrades/trials.py
+args: ["--trial", "context-length"]
+timeout_minutes: 45
+vram_gb: 21
+after_fetch: []   # wait for no download; only the spec job needs the draft

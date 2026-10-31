@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "chars_per_token": 2.6,
+  "sources": {
+    "calls": {
+      "kind": "realspeech",
+      "path": "~/theprojects/queue/.worktrees/sales-brain/sb-realspeech/data/realspeech/manifest.jsonl",
+      "split": "dev"
+    },
+    "talks": {
+      "kind": "text_glob",
+      "glob": "data/codacus/*.txt"
+    },
+    "repos": {
+      "kind": "work_items",
+      "work_dir": "~/theprojects/queue/sales-brain/work",
+      "root": "~/theprojects/queue/sales-brain",
+      "fallback_glob": "kvfrontier/*.py"
+    }
+  },
+  "contexts": [
+    {"id": "mix-32k", "tokens": 32768, "mix": {"calls": 0.6, "talks": 0.2, "repos": 0.2}},
+    {"id": "mix-64k", "tokens": 65536, "mix": {"calls": 0.6, "talks": 0.2, "repos": 0.2}},
+    {"id": "mix-128k", "tokens": 131072, "mix": {"calls": 0.6, "talks": 0.2, "repos": 0.2}}
+  ]
+}

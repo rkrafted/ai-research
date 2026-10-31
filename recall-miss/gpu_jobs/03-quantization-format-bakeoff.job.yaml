@@ -1,0 +1,5 @@
+script: tools/exp/card3_quant_formats.py
+ollama: true
+timeout_minutes: 240
+vram_gb: 20
+after_fetch: []   # needs no pending download (Claude 2026-10-03)

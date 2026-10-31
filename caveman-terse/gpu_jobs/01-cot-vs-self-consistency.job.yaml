@@ -1,0 +1,5 @@
+script: tools/exp/card1_cot_self_consistency.py
+ollama: true
+timeout_minutes: 240
+vram_gb: 12
+after_fetch: []   # re-armed 2026-10-03: hard sales-brain transcript task (Ceiling fix)

@@ -1,0 +1,6 @@
+script: tools/exp/card4_speculative.py
+timeout_minutes: 240
+vram_gb: 21
+# Re-scoped 2026-10-03: Ollama's bundled llama-server + Qwen3-0.6B Q8_0 draft
+# on the cached 27B; the job starts its own server, so no Ollama bridge.
+after_fetch: [qwen3-0.6b-gguf]

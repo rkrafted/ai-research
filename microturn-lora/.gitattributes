@@ -1,0 +1,4 @@
+# Generated data is no longer tracked: it lives under the gitignored
+# `data/generated/` and `state/` (see .gitignore).  `git archive` therefore
+# carries only source, docs, hand-written fixtures and the `data/codacus/*.txt`
+# caption material that the research notes cite.

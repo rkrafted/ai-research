@@ -1,0 +1,1130 @@
+[
+ {
+  "name": "neuro-dump",
+  "url": "https://www.youtube.com/channel/UCMHBJH5rX2dF1S7o-fJuY-A",
+  "videos_sampled": 0,
+  "videos_available": 1,
+  "score": 56.62,
+  "kept": true,
+  "reason": "kept: score 56.6 vs seed bar 16.0; ~5.0 methods, ~0.0 numbers, ~6.00 paper links/video, captions 100%.",
+  "seed": true,
+  "provenance": "seed",
+  "top_methods": [
+   "latent",
+   "looped",
+   "reasoning",
+   "reinforcement learning",
+   "scaling laws"
+  ]
+ },
+ {
+  "name": "3Blue1Brown",
+  "url": "https://www.youtube.com/@3blue1brown",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 34.08,
+  "kept": true,
+  "reason": "kept: score 34.1 vs seed bar 16.0; ~0.3 methods, ~0.1 numbers, ~0.50 paper links/video, captions 100%.",
+  "seed": true,
+  "provenance": "seed",
+  "top_methods": [
+   "diffusion",
+   "distillation",
+   "embedding",
+   "latent",
+   "pre-training",
+   "reasoning"
+  ]
+ },
+ {
+  "name": "AI Search",
+  "url": "https://www.youtube.com/channel/UCIgnGlGkVRhd4qNFcEwLL4A",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 29.68,
+  "kept": true,
+  "reason": "kept: score 29.7 vs seed bar 16.0; ~1.9 methods, ~2.2 numbers, ~0.00 paper links/video, captions 60%.",
+  "seed": true,
+  "provenance": "seed",
+  "top_methods": [
+   "audio",
+   "tts",
+   "attention",
+   "gguf",
+   "lora",
+   "multimodal"
+  ]
+ },
+ {
+  "name": "IBM Technology",
+  "url": "https://www.youtube.com/@IBMTechnology",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 15.94,
+  "kept": true,
+  "reason": "kept: score 15.9 vs seed bar 16.0; ~1.1 methods, ~0.3 numbers, ~0.00 paper links/video, captions 98%.",
+  "seed": true,
+  "provenance": "seed",
+  "top_methods": [
+   "agents",
+   "agentic",
+   "mixture of experts",
+   "rag",
+   "reasoning",
+   "loop"
+  ]
+ },
+ {
+  "name": "Aperture",
+  "url": "https://www.youtube.com/channel/UCO5QSoES5yn2Dw7YixDYT5Q",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 10.11,
+  "kept": true,
+  "reason": "kept: score 10.1 vs seed bar 16.0; ~0.2 methods, ~0.6 numbers, ~0.00 paper links/video, captions 60%.",
+  "seed": true,
+  "provenance": "seed",
+  "top_methods": [
+   "attention",
+   "audio",
+   "loop"
+  ]
+ },
+ {
+  "name": "Perimeter Institute",
+  "url": "https://www.youtube.com/channel/UCpHvNclapYpq8b0ZnGRoMeg",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 9.37,
+  "kept": true,
+  "reason": "kept: score 9.4 vs seed bar 16.0; ~0.5 methods, ~0.1 numbers, ~0.00 paper links/video, captions 74%.",
+  "seed": true,
+  "provenance": "seed",
+  "top_methods": [
+   "teacher",
+   "loop",
+   "vision",
+   "reasoning"
+  ]
+ },
+ {
+  "name": "Machine Learning Street Talk",
+  "url": "https://www.youtube.com/@MachineLearningStreetTalk",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 55.24,
+  "kept": true,
+  "reason": "kept: score 55.2 vs seed bar 16.0; ~3.5 methods, ~1.6 numbers, ~6.15 paper links/video, captions 100%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "agents",
+   "diffusion",
+   "reasoning",
+   "agentic",
+   "loop",
+   "transformer"
+  ]
+ },
+ {
+  "name": "Yannic Kilcher",
+  "url": "https://www.youtube.com/@YannicKilcher",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 47.67,
+  "kept": true,
+  "reason": "kept: score 47.7 vs seed bar 16.0; ~2.4 methods, ~1.2 numbers, ~0.60 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "transformer",
+   "reasoning",
+   "attention",
+   "recurrent",
+   "diffusion",
+   "embedding"
+  ]
+ },
+ {
+  "name": "Umar Jamil",
+  "url": "https://www.youtube.com/@umarjamilai",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 46.24,
+  "kept": true,
+  "reason": "kept: score 46.2 vs seed bar 16.0; ~4.3 methods, ~0.1 numbers, ~1.05 paper links/video, captions 62%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "transformer",
+   "attention",
+   "gradient",
+   "kv cache",
+   "kv-cache",
+   "loop"
+  ]
+ },
+ {
+  "name": "Welch Labs",
+  "url": "https://www.youtube.com/@WelchLabs",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 44.76,
+  "kept": true,
+  "reason": "kept: score 44.8 vs seed bar 16.0; ~1.4 methods, ~2.0 numbers, ~1.85 paper links/video, captions 70%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "attention",
+   "gradient",
+   "transformer",
+   "vision",
+   "embedding",
+   "distill"
+  ]
+ },
+ {
+  "name": "bycloud",
+  "url": "https://www.youtube.com/@bycloudAI",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 42.1,
+  "kept": true,
+  "reason": "kept: score 42.1 vs seed bar 16.0; ~2.0 methods, ~1.2 numbers, ~1.60 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "attention",
+   "rlhf",
+   "fine-tuning",
+   "reasoning",
+   "agentic",
+   "audio"
+  ]
+ },
+ {
+  "name": "Latent Space",
+  "url": "https://www.youtube.com/@LatentSpacePod",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 40.92,
+  "kept": true,
+  "reason": "kept: score 40.9 vs seed bar 16.0; ~3.6 methods, ~1.9 numbers, ~0.25 paper links/video, captions 64%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "agents",
+   "latent",
+   "reasoning",
+   "loop",
+   "agentic",
+   "attention"
+  ]
+ },
+ {
+  "name": "Gabriel Mongaras",
+  "url": "https://www.youtube.com/@gabrielmongaras",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 39.88,
+  "kept": true,
+  "reason": "kept: score 39.9 vs seed bar 16.0; ~1.8 methods, ~0.1 numbers, ~1.10 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "attention",
+   "latent",
+   "recurrent",
+   "transformer",
+   "diffusion",
+   "moe"
+  ]
+ },
+ {
+  "name": "AI Coffee Break",
+  "url": "https://www.youtube.com/@AICoffeeBreak",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 38.64,
+  "kept": true,
+  "reason": "kept: score 38.6 vs seed bar 16.0; ~1.8 methods, ~0.1 numbers, ~0.65 paper links/video, captions 80%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "chain-of-thought",
+   "diffusion",
+   "reasoning",
+   "attention",
+   "multimodal",
+   "pre-training"
+  ]
+ },
+ {
+  "name": "Trelis Research",
+  "url": "https://www.youtube.com/@TrelisResearch",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 37.6,
+  "kept": true,
+  "reason": "kept: score 37.6 vs seed bar 16.0; ~3.6 methods, ~0.9 numbers, ~0.15 paper links/video, captions 100%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "speech",
+   "tts",
+   "audio",
+   "fine-tuning",
+   "whisper",
+   "agents"
+  ]
+ },
+ {
+  "name": "Artem Kirsanov",
+  "url": "https://www.youtube.com/@ArtemKirsanov",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 36.29,
+  "kept": true,
+  "reason": "kept: score 36.3 vs seed bar 16.0; ~0.7 methods, ~1.1 numbers, ~1.80 paper links/video, captions 80%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "gradient",
+   "recurrent",
+   "backprop",
+   "latent",
+   "reasoning",
+   "loop"
+  ]
+ },
+ {
+  "name": "Robert Miles AI Safety",
+  "url": "https://www.youtube.com/@RobertMilesAI",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 35.26,
+  "kept": true,
+  "reason": "kept: score 35.3 vs seed bar 16.0; ~0.8 methods, ~0.3 numbers, ~0.50 paper links/video, captions 94%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "vision",
+   "distillation",
+   "scaling laws",
+   "latent",
+   "attention",
+   "distill"
+  ]
+ },
+ {
+  "name": "Hugging Face",
+  "url": "https://www.youtube.com/@HuggingFace",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 30.69,
+  "kept": true,
+  "reason": "kept: score 30.7 vs seed bar 16.0; ~1.1 methods, ~0.5 numbers, ~0.35 paper links/video, captions 74%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "distillation",
+   "loop",
+   "reasoning",
+   "reinforcement learning",
+   "attention"
+  ]
+ },
+ {
+  "name": "Tunadorable",
+  "url": "https://www.youtube.com/channel/UCfFCdHblZylZfxnHDFPKnPQ",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 30.59,
+  "kept": true,
+  "reason": "kept: score 30.6 vs seed bar 16.0; ~0.6 methods, ~0.1 numbers, ~0.75 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "diffusion",
+   "pre-training",
+   "agentic",
+   "attention",
+   "fine-tuning",
+   "latent"
+  ]
+ },
+ {
+  "name": "TWIML",
+  "url": "https://www.youtube.com/@TWIMLAI",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 29.03,
+  "kept": true,
+  "reason": "kept: score 29.0 vs seed bar 16.0; ~3.7 methods, ~0.1 numbers, ~0.15 paper links/video, captions 62%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "agentic",
+   "agents",
+   "audio",
+   "reasoning",
+   "attention",
+   "loop"
+  ]
+ },
+ {
+  "name": "Wes Roth",
+  "url": "https://www.youtube.com/@WesRoth",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 27.75,
+  "kept": true,
+  "reason": "kept: score 27.8 vs seed bar 16.0; ~1.2 methods, ~0.3 numbers, ~0.35 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "agents",
+   "reasoning",
+   "chain of thought",
+   "chain-of-thought",
+   "agentic",
+   "latent"
+  ]
+ },
+ {
+  "name": "NVIDIA Developer",
+  "url": "https://www.youtube.com/@NVIDIADeveloper",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 26.16,
+  "kept": true,
+  "reason": "kept: score 26.2 vs seed bar 16.0; ~2.2 methods, ~0.6 numbers, ~0.05 paper links/video, captions 73%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "agentic",
+   "reasoning",
+   "vision",
+   "fine-tuning",
+   "lora"
+  ]
+ },
+ {
+  "name": "AI Engineer",
+  "url": "https://www.youtube.com/@aiDotEngineer",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 25.4,
+  "kept": true,
+  "reason": "kept: score 25.4 vs seed bar 16.0; ~1.7 methods, ~2.5 numbers, ~0.00 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "loop",
+   "agentic",
+   "attention",
+   "fine-tuning",
+   "grpo"
+  ]
+ },
+ {
+  "name": "Sam Witteveen",
+  "url": "https://www.youtube.com/@samwitteveenai",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 24.04,
+  "kept": true,
+  "reason": "kept: score 24.0 vs seed bar 16.0; ~1.6 methods, ~1.1 numbers, ~0.00 paper links/video, captions 98%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "agents",
+   "agentic",
+   "speech",
+   "tts",
+   "audio",
+   "loop"
+  ]
+ },
+ {
+  "name": "Emergent Garden",
+  "url": "https://www.youtube.com/@EmergentGarden",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 23.19,
+  "kept": true,
+  "reason": "kept: score 23.2 vs seed bar 16.0; ~0.6 methods, ~0.3 numbers, ~0.25 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "agentic",
+   "audio",
+   "distill",
+   "gradient",
+   "loop"
+  ]
+ },
+ {
+  "name": "Krish Naik",
+  "url": "https://www.youtube.com/@krishnaik06",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 22.98,
+  "kept": true,
+  "reason": "kept: score 23.0 vs seed bar 16.0; ~2.5 methods, ~0.5 numbers, ~0.10 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "rag",
+   "agentic",
+   "agents",
+   "multimodal",
+   "fine-tuning",
+   "loop"
+  ]
+ },
+ {
+  "name": "Lex Fridman",
+  "url": "https://www.youtube.com/@lexfridman",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 22.55,
+  "kept": true,
+  "reason": "kept: score 22.6 vs seed bar 16.0; ~0.7 methods, ~0.1 numbers, ~0.20 paper links/video, captions 100%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "scaling laws",
+   "agentic",
+   "audio",
+   "diffusion",
+   "long context"
+  ]
+ },
+ {
+  "name": "Two Minute Papers",
+  "url": "https://www.youtube.com/@TwoMinutePapers",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 22.34,
+  "kept": true,
+  "reason": "kept: score 22.3 vs seed bar 16.0; ~0.1 methods, ~0.4 numbers, ~0.25 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "vllm"
+  ]
+ },
+ {
+  "name": "Y Combinator",
+  "url": "https://www.youtube.com/@ycombinator",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 21.77,
+  "kept": true,
+  "reason": "kept: score 21.8 vs seed bar 16.0; ~1.1 methods, ~0.8 numbers, ~0.15 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "attention",
+   "vision",
+   "diffusion",
+   "fine tuning",
+   "fine-tuning"
+  ]
+ },
+ {
+  "name": "Hamel Husain",
+  "url": "https://www.youtube.com/channel/UC__dUuqF5w4OnbW221JxmKg",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 19.04,
+  "kept": true,
+  "reason": "kept: score 19.0 vs seed bar 16.0; ~1.1 methods, ~0.9 numbers, ~0.00 paper links/video, captions 66%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "agents",
+   "embedding",
+   "loop",
+   "rag",
+   "reinforcement learning",
+   "context window"
+  ]
+ },
+ {
+  "name": "Dwarkesh Patel",
+  "url": "https://www.youtube.com/@DwarkeshPatel",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 17.75,
+  "kept": true,
+  "reason": "kept: score 17.8 vs seed bar 16.0; ~0.8 methods, ~0.9 numbers, ~0.00 paper links/video, captions 96%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "agents",
+   "loop",
+   "reasoning",
+   "activation checkpointing",
+   "audio",
+   "chain of thought"
+  ]
+ },
+ {
+  "name": "Microsoft Research",
+  "url": "https://www.youtube.com/@MicrosoftResearch",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 17.56,
+  "kept": true,
+  "reason": "kept: score 17.6 vs seed bar 16.0; ~1.2 methods, ~0.1 numbers, ~0.10 paper links/video, captions 65%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "diffusion",
+   "agents",
+   "multimodal",
+   "reasoning",
+   "agentic",
+   "embedding"
+  ]
+ },
+ {
+  "name": "Modular",
+  "url": "https://www.youtube.com/@modularinc",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 17.43,
+  "kept": true,
+  "reason": "kept: score 17.4 vs seed bar 16.0; ~0.8 methods, ~0.8 numbers, ~0.00 paper links/video, captions 66%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agentic",
+   "agents",
+   "speculative decoding",
+   "tts",
+   "vision",
+   "attention"
+  ]
+ },
+ {
+  "name": "Nicholas Renotte",
+  "url": "https://www.youtube.com/@NicholasRenotte",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 17.31,
+  "kept": true,
+  "reason": "kept: score 17.3 vs seed bar 16.0; ~0.8 methods, ~1.4 numbers, ~0.00 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "fine tuning",
+   "agents",
+   "reinforcement learning",
+   "context window",
+   "distill",
+   "lora"
+  ]
+ },
+ {
+  "name": "AI at Meta",
+  "url": "https://www.youtube.com/@AIatMeta",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 17.09,
+  "kept": true,
+  "reason": "kept: score 17.1 vs seed bar 16.0; ~1.2 methods, ~0.7 numbers, ~0.00 paper links/video, captions 77%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "fine-tuning",
+   "reasoning",
+   "audio",
+   "vision",
+   "attention",
+   "context window"
+  ]
+ },
+ {
+  "name": "Kaggle",
+  "url": "https://www.youtube.com/@Kaggle",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 15.77,
+  "kept": false,
+  "reason": "dropped: score 15.8 vs seed bar 16.0; ~0.7 methods, ~0.1 numbers, ~0.05 paper links/video, captions 63%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "agentic",
+   "attention",
+   "context window"
+  ]
+ },
+ {
+  "name": "LangChain",
+  "url": "https://www.youtube.com/@LangChain",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 15.65,
+  "kept": false,
+  "reason": "dropped: score 15.7 vs seed bar 16.0; ~1.1 methods, ~0.3 numbers, ~0.00 paper links/video, captions 86%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "loop",
+   "fine-tuning",
+   "multimodal",
+   "verifier"
+  ]
+ },
+ {
+  "name": "James Briggs",
+  "url": "https://www.youtube.com/@jamesbriggs",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 15.62,
+  "kept": false,
+  "reason": "dropped: score 15.6 vs seed bar 16.0; ~1.6 methods, ~0.2 numbers, ~0.00 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "agentic",
+   "rag",
+   "audio",
+   "chain of thought",
+   "chain-of-thought"
+  ]
+ },
+ {
+  "name": "Stanford Online",
+  "url": "https://www.youtube.com/@stanfordonline",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 15.46,
+  "kept": false,
+  "reason": "dropped: score 15.5 vs seed bar 16.0; ~1.4 methods, ~0.1 numbers, ~0.00 paper links/video, captions 92%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "reinforcement learning",
+   "agentic",
+   "agents",
+   "attention",
+   "diffusion",
+   "distillation"
+  ]
+ },
+ {
+  "name": "DeepLearning.AI",
+  "url": "https://www.youtube.com/@Deeplearningai",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 15.19,
+  "kept": false,
+  "reason": "dropped: score 15.2 vs seed bar 16.0; ~1.1 methods, ~0.5 numbers, ~0.00 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "agentic",
+   "loop",
+   "multimodal",
+   "fine-tuning",
+   "kv cache"
+  ]
+ },
+ {
+  "name": "Serrano.Academy",
+  "url": "https://www.youtube.com/@SerranoAcademy",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 14.94,
+  "kept": false,
+  "reason": "dropped: score 14.9 vs seed bar 16.0; ~1.4 methods, ~0.8 numbers, ~0.00 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "attention",
+   "transformer",
+   "rag",
+   "reasoning",
+   "agents",
+   "agentic"
+  ]
+ },
+ {
+  "name": "No Priors",
+  "url": "https://www.youtube.com/@NoPriorsPodcast",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 14.92,
+  "kept": false,
+  "reason": "dropped: score 14.9 vs seed bar 16.0; ~1.2 methods, ~0.7 numbers, ~0.00 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "vision",
+   "agentic",
+   "agents",
+   "latent",
+   "attention",
+   "diffusion"
+  ]
+ },
+ {
+  "name": "1littlecoder",
+  "url": "https://www.youtube.com/@1littlecoder",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 14.64,
+  "kept": false,
+  "reason": "dropped: score 14.6 vs seed bar 16.0; ~0.6 methods, ~0.7 numbers, ~0.05 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "agents",
+   "attention",
+   "agentic",
+   "context window",
+   "long context",
+   "reasoning"
+  ]
+ },
+ {
+  "name": "Weights & Biases",
+  "url": "https://www.youtube.com/@WeightsBiases",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 14.4,
+  "kept": false,
+  "reason": "dropped: score 14.4 vs seed bar 16.0; ~1.2 methods, ~0.1 numbers, ~0.00 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "agentic",
+   "loop",
+   "reinforcement learning",
+   "tool use",
+   "chain of thought"
+  ]
+ },
+ {
+  "name": "Simons Institute",
+  "url": "https://www.youtube.com/@SimonsInstitute",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 13.83,
+  "kept": false,
+  "reason": "dropped: score 13.8 vs seed bar 16.0; ~0.2 methods, ~0.0 numbers, ~0.05 paper links/video, captions 100%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "vision",
+   "attention",
+   "reasoning",
+   "scaling laws"
+  ]
+ },
+ {
+  "name": "MIT OpenCourseWare",
+  "url": "https://www.youtube.com/@mitocw",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 13.42,
+  "kept": false,
+  "reason": "dropped: score 13.4 vs seed bar 16.0; ~0.9 methods, ~0.0 numbers, ~0.00 paper links/video, captions 100%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "speech",
+   "attention",
+   "diffusion"
+  ]
+ },
+ {
+  "name": "DataTalksClub",
+  "url": "https://www.youtube.com/@DataTalksClub",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 13.39,
+  "kept": false,
+  "reason": "dropped: score 13.4 vs seed bar 16.0; ~1.1 methods, ~0.1 numbers, ~0.00 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "rag",
+   "agentic",
+   "agents",
+   "merging",
+   "optimizer",
+   "retrieval-augmented"
+  ]
+ },
+ {
+  "name": "Google DeepMind",
+  "url": "https://www.youtube.com/@GoogleDeepMind",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 12.35,
+  "kept": false,
+  "reason": "dropped: score 12.3 vs seed bar 16.0; ~0.3 methods, ~0.1 numbers, ~0.00 paper links/video, captions 100%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agentic",
+   "agents",
+   "audio",
+   "chain of thought",
+   "speech",
+   "vision"
+  ]
+ },
+ {
+  "name": "LlamaIndex",
+  "url": "https://www.youtube.com/@LlamaIndex",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 12.21,
+  "kept": false,
+  "reason": "dropped: score 12.2 vs seed bar 16.0; ~1.2 methods, ~0.3 numbers, ~0.00 paper links/video, captions 54%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "agentic",
+   "loop",
+   "rag",
+   "reasoning",
+   "vlm"
+  ]
+ },
+ {
+  "name": "TensorFlow",
+  "url": "https://www.youtube.com/@TensorFlow",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 12.04,
+  "kept": false,
+  "reason": "dropped: score 12.0 vs seed bar 16.0; ~0.3 methods, ~0.0 numbers, ~0.00 paper links/video, captions 100%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "fine-tuning",
+   "agents",
+   "diffusion",
+   "embedding",
+   "lora"
+  ]
+ },
+ {
+  "name": "IPAM",
+  "url": "https://www.youtube.com/@IPAMUCLA",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 11.82,
+  "kept": false,
+  "reason": "dropped: score 11.8 vs seed bar 16.0; ~0.1 methods, ~0.0 numbers, ~0.10 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "attention",
+   "reasoning",
+   "sparse"
+  ]
+ },
+ {
+  "name": "StatQuest",
+  "url": "https://www.youtube.com/@statquest",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 11.72,
+  "kept": false,
+  "reason": "dropped: score 11.7 vs seed bar 16.0; ~0.9 methods, ~0.0 numbers, ~0.05 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "reinforcement learning",
+   "attention",
+   "transformer",
+   "embedding",
+   "fine-tuning",
+   "learning rate"
+  ]
+ },
+ {
+  "name": "a16z",
+  "url": "https://www.youtube.com/@a16z",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 11.02,
+  "kept": false,
+  "reason": "dropped: score 11.0 vs seed bar 16.0; ~0.7 methods, ~0.4 numbers, ~0.00 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "agentic",
+   "reasoning",
+   "attention",
+   "diffusion",
+   "vision"
+  ]
+ },
+ {
+  "name": "AI Jason",
+  "url": "https://www.youtube.com/@AIJasonZ",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 10.83,
+  "kept": false,
+  "reason": "dropped: score 10.8 vs seed bar 16.0; ~0.8 methods, ~0.1 numbers, ~0.00 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "loop",
+   "agents",
+   "tool use",
+   "verifier"
+  ]
+ },
+ {
+  "name": "fast.ai",
+  "url": "https://www.youtube.com/@howardjeremyp",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 10.54,
+  "kept": false,
+  "reason": "dropped: score 10.5 vs seed bar 16.0; ~0.3 methods, ~0.0 numbers, ~0.00 paper links/video, captions 64%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "fine-tuning",
+   "function calling",
+   "gptq",
+   "llama.cpp",
+   "retrieval augmented",
+   "vision"
+  ]
+ },
+ {
+  "name": "Fireship",
+  "url": "https://www.youtube.com/@Fireship",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 10.19,
+  "kept": false,
+  "reason": "dropped: score 10.2 vs seed bar 16.0; ~0.2 methods, ~0.5 numbers, ~0.00 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "agents",
+   "agentic",
+   "audio"
+  ]
+ },
+ {
+  "name": "Computerphile",
+  "url": "https://www.youtube.com/@Computerphile",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 9.57,
+  "kept": false,
+  "reason": "dropped: score 9.6 vs seed bar 16.0; ~0.1 methods, ~0.0 numbers, ~0.05 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "candidate",
+  "top_methods": [
+   "agentic",
+   "agents",
+   "chain of thought"
+  ]
+ },
+ {
+  "name": "Anthropic",
+  "url": "https://www.youtube.com/@anthropic-ai",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 8.89,
+  "kept": false,
+  "reason": "dropped: score 8.9 vs seed bar 16.0; ~0.1 methods, ~0.1 numbers, ~0.00 paper links/video, captions 71%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "agentic"
+  ]
+ },
+ {
+  "name": "OpenAI",
+  "url": "https://www.youtube.com/@OpenAI",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 8.68,
+  "kept": false,
+  "reason": "dropped: score 8.7 vs seed bar 16.0; ~0.2 methods, ~0.1 numbers, ~0.00 paper links/video, captions 70%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "synthetic data",
+   "agents"
+  ]
+ },
+ {
+  "name": "PyTorch",
+  "url": "https://www.youtube.com/@PyTorch",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 7.79,
+  "kept": false,
+  "reason": "dropped: score 7.8 vs seed bar 16.0; ~0.7 methods, ~0.0 numbers, ~0.00 paper links/video, captions 30%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "agents",
+   "agentic",
+   "moe",
+   "vllm",
+   "fine-tuning",
+   "lora"
+  ]
+ },
+ {
+  "name": "Ritvikmath",
+  "url": "https://www.youtube.com/@ritvikmath",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 7.71,
+  "kept": false,
+  "reason": "dropped: score 7.7 vs seed bar 16.0; ~0.1 methods, ~0.0 numbers, ~0.00 paper links/video, captions 64%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": [
+   "gradient",
+   "reinforcement learning"
+  ]
+ },
+ {
+  "name": "David Shapiro",
+  "url": "https://www.youtube.com/@DaveShap",
+  "videos_sampled": 20,
+  "videos_available": 20,
+  "score": 6.17,
+  "kept": false,
+  "reason": "dropped: score 6.2 vs seed bar 16.0; ~0.0 methods, ~0.1 numbers, ~0.00 paper links/video, captions 60%.",
+  "seed": false,
+  "provenance": "expansion",
+  "top_methods": []
+ }
+]

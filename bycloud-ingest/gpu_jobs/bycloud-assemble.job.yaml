@@ -1,0 +1,7 @@
+# Runner GPU job: parse the local batch's raw answers into the verified result
+# file data/bycloud-extracts.jsonl (adds video_id, grounds every concept quote).
+# It runs after the local batch for this repo has finished, by the runner's order.
+# 2026-10-17: re-armed. The first run started before the 252-prompt batch finished
+# and wrote 9 rows; the job now refuses a partial raw file (see assemble_extract.py).
+script: bycloud/assemble_extract.py
+timeout_minutes: 20

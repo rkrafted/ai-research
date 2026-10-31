@@ -1,0 +1,128 @@
+[
+ {
+  "id": "agent-watchdog-834d22fd",
+  "repo": "agent-watchdog",
+  "commit": "834d22fd3f57767ae57e3d106a37ab5550ed1e41",
+  "parent": "2f68dd874e1a93a5c24ada6697d5672881dc56df",
+  "kind": "feature",
+  "test_cmd": "python3 -m pytest -q",
+  "issue": "agent-watchdog is only a stub right now. Build it out into a working package: read agent transcripts in both supported JSONL shapes (Claude Code and DSH), turn them into a common sequence of turns, run the waste-detection rules over that sequence, and expose a command line that can report on a transcript file and watch one as it grows. The behaviour the tests expect is the contract; run `python3 -m pytest -q` and make it pass without breaking anything."
+ },
+ {
+  "id": "distill-commons-db7c5de5",
+  "repo": "distill-commons",
+  "commit": "db7c5de5404c0da802f2fa9df640dbaf378c27ed",
+  "parent": "fc6d59f3381e7e48536ad716b7846d877ab03bf0",
+  "kind": "refactor",
+  "test_cmd": "python3 -m pytest -q",
+  "issue": "The publish scan rejects any committed file whose name ends in a raw-data suffix (`.json`, `.jsonl`, `.csv`, `.db`). This project currently ships example and fixture data under those suffixes. Move that data to `.txt` files and update whatever reads it so the tests still pass; the generated JSON-schema document must still match the schema defined in code. `python3 -m pytest -q` must be green and no committed file may keep a raw-data suffix."
+ },
+ {
+  "id": "job-radar-42cd244d",
+  "repo": "job-radar",
+  "commit": "42cd244d9bd79653aca84375bf3b372cb9a288ed",
+  "parent": "fcbd8db5528654c2cb1a82ce691d70481057c3ee",
+  "kind": "bugfix",
+  "test_cmd": "python3 -m pytest -q",
+  "issue": "Two reachability rules in job-radar are wrong. A route marked `status: not-yet` (for example the intra-company US transfer that needs a year abroad first) must never be planned as usable now: the posting stays in the radar but is listed under a later section, and the route plan reports it as unusable with its condition. Separately, a posting whose location text is a broad region such as AMER/APAC must not be treated as remote-from-home, while an EU/EMEA posting still is; the region rule has to override the generic `remote` word. Run `python3 -m pytest -q`."
+ },
+ {
+  "id": "job-radar-fafc2986",
+  "repo": "job-radar",
+  "commit": "fafc2986996ccfa12fb3de8808388863d4efb1ce",
+  "parent": "5eab05a18597c5f507bda616d175a60426a48541",
+  "kind": "feature",
+  "test_cmd": "python3 -m pytest -q",
+  "issue": "Add the relevance pre-filter that job-radar is missing. It has to classify a posting title into a role family, drop unrelated and go-to-market titles, drop postings above the target seniority level unless the profile explicitly raises that ceiling, and return both the kept and the dropped postings with a reason for each drop. The reach layer also needs its public helpers (`region_of`, `route_name`, `how_to_take`) to answer for a posting and profile. `python3 -m pytest -q` is the contract."
+ },
+ {
+  "id": "job-radar-d44fcbe9",
+  "repo": "job-radar",
+  "commit": "d44fcbe906894516c27e2e2ce593059d10331669",
+  "parent": "e40869dfe900a22928fbeea74a0f82cbcb5096c8",
+  "kind": "feature",
+  "test_cmd": "python3 -m pytest -q",
+  "issue": "job-radar needs its operator-profile builder and a radar command that respects a posting limit. Building a profile from an operator source file must map the documented fields onto the profile shape; the radar command must cap the number of postings it takes; and the prompt builder must render a concrete JSON example for the model. Make `python3 -m pytest -q` pass."
+ },
+ {
+  "id": "job-radar-e40869df",
+  "repo": "job-radar",
+  "commit": "e40869dfe900a22928fbeea74a0f82cbcb5096c8",
+  "parent": "2f96b57bcdb90af7ffc80f43cacec71f0f174d7d",
+  "kind": "refactor",
+  "test_cmd": "python3 -m pytest -q",
+  "issue": "The runner's raw-data scan flags every committed `.json`/`.csv`/`.db` file, and job-radar's recorded ATS board fixtures are committed as `.json`. Store those fixtures with a safe suffix instead and update the board loader so it still finds them, leaving the parsed postings identical. Add/keep a guard test that no committed file uses a raw-data suffix. `python3 -m pytest -q` must pass."
+ },
+ {
+  "id": "llm-bill-audit-d7031983",
+  "repo": "llm-bill-audit",
+  "commit": "d7031983e1e1772d6fef560ea18643ec849fb441",
+  "parent": "6d894c6495ed94bb4722aea58a40a50f4919399c",
+  "kind": "feature",
+  "test_cmd": "python3 -m pytest -q",
+  "issue": "Build the llm-bill-audit tool. It reads a JSONL export of LLM API calls and a price table, groups the calls (by model, or by the grouping the caller asks for), estimates the cost of each group, and renders a readable report; it also converts an input export into the canonical JSONL shape. A sample export and price table are part of the deliverable. The tests define the exact CLI, grouping, cost and converter behaviour - make `python3 -m pytest -q` pass."
+ },
+ {
+  "id": "lora-expert-bank-73adf2d8",
+  "repo": "lora-expert-bank",
+  "commit": "73adf2d82082afa7ad4e5b5feb37fcbdf07ba75d",
+  "parent": "12185af2e4c714f47fe4b34b8efa56ca7f2c1868",
+  "kind": "bugfix",
+  "test_cmd": "python3 -m pytest -q",
+  "issue": "Two things are wrong in lora-expert-bank. Its committed fixtures use raw-data suffixes the publish scan rejects, so they must move to `.txt` with the loaders updated. And the offline evaluator must resolve its fixture path relative to the repository rather than the process working directory, so evaluation works when run from another directory. `python3 -m pytest -q` must pass, including a guard that no committed file has a raw-data suffix."
+ },
+ {
+  "id": "site-outreach-c1620f08",
+  "repo": "site-outreach",
+  "commit": "c1620f08a33ccded1e25d1da474a2f746361034d",
+  "parent": "e4d8e8c18ee44f60b6158d0d8504964359b54fed",
+  "kind": "feature",
+  "test_cmd": "python3 -m pytest -q",
+  "issue": "Build the site-outreach pipeline: turn an OpenStreetMap/Overpass response into leads, build a small demo site per lead, compose an outreach offer, and store/send it through the offline store. There is an example lead fixture and the tests define the expected shapes and failure cases. Make `python3 -m pytest -q` pass offline (no network)."
+ },
+ {
+  "id": "video-factory-10963b3b",
+  "repo": "video-factory",
+  "commit": "10963b3b2fd05990cde4d2e3e277ef3b0f9546bb",
+  "parent": "b1f49fa5dfaf17cccbd663a5c4c3a1e49875143b",
+  "kind": "feature",
+  "test_cmd": "python3 -m pytest -q",
+  "issue": "Implement the offline video-factory slice: given a plan, render the video artifacts, run the QA checks, and produce the publish step, all offline and deterministic. The tests describe the expected pipeline behaviour and artifacts. Make `python3 -m pytest -q` pass."
+ },
+ {
+  "id": "prior-art-e4eaa5b3",
+  "repo": "prior-art",
+  "commit": "e4eaa5b3be2cc7efe13306a9cfd63bbb4673fe29",
+  "parent": "6b0ce67969fdbac975a168dd21ea8be3f5a362da",
+  "kind": "feature",
+  "test_cmd": "python3 -m pytest -q",
+  "issue": "prior-art's ranking needs a proper blend. Popularity must be log-scaled against a per-source reference and clipped, sources without a popularity metric contribute nothing, and similarity/popularity/recency must form a weight distribution. With that ranking, each labelled case's canonical project must rank first and the case must read as already built. The fixtures record the expected cases; make `python3 -m pytest -q` pass."
+ },
+ {
+  "id": "prior-art-6b0ce679",
+  "repo": "prior-art",
+  "commit": "6b0ce67969fdbac975a168dd21ea8be3f5a362da",
+  "parent": "ae8c8e4389b2b8dfa0ba352bbc0f6ed0a9410905",
+  "kind": "bugfix",
+  "test_cmd": "python3 -m pytest -q",
+  "issue": "The personal-data guard test fails: prior-art's recorded fixtures contain absolute home paths (and the recorder would write them again). Strip those paths from every recorded fixture and make the recorder normalise them going forward, without changing any other fixture content the replay tests depend on. `python3 -m pytest -q` must pass."
+ },
+ {
+  "id": "prior-art-c144d503",
+  "repo": "prior-art",
+  "commit": "c144d5037ecbd6b645fbb6bd3d04ab781a92b19e",
+  "parent": "3bf2a6305d191d5e0ef5ea78d3678c5bbd828473",
+  "kind": "refactor",
+  "test_cmd": "python3 -m pytest -q",
+  "issue": "prior-art commits its recorded HTTP fixtures as `.json`, which the publish scan rejects. Move the fixture data to safe `.txt` files, update the cache/recorder so offline replay still works, and keep a guard that the fixtures contain no email addresses. `python3 -m pytest -q` must pass, including the offline pipeline test."
+ },
+ {
+  "id": "prior-art-3bf2a630",
+  "repo": "prior-art",
+  "commit": "3bf2a6305d191d5e0ef5ea78d3678c5bbd828473",
+  "parent": "15dbd4ad79703e4e2ad69612074bb71d14b11112",
+  "kind": "feature",
+  "test_cmd": "python3 -m pytest -q",
+  "issue": "Build prior-art's first working slice: query planning, cached/offline HTTP access with explicit offline misses, a ranking of results, and a CLI that prints a verdict. The recorded fixtures drive the offline tests. Make `python3 -m pytest -q` pass."
+ }
+]

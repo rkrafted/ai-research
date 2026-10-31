@@ -1,0 +1,16 @@
+data/private/
+local_batch/.lock
+__pycache__/
+.venv/
+*.pyc
+.env
+.env.*
+state/
+data/raw/
+*.db
+*.sqlite
+node_modules/
+artifacts/
+gpu_jobs/*.log
+*.safetensors
+*.gguf

@@ -1,0 +1,15 @@
+# The channel registry dump is a generated data artifact (rebuild with
+# `python3 -m airesearch.registry`). Keep it in the repo for the offline
+# pipeline, but leave machine-readable data dumps out of published exports.
+data/channels.json export-ignore
+
+# The looped-LM 3090 result is provenance-checked and must travel into the merged
+# tree (the runner re-runs done_when in the main repo), but it is still data: keep
+# it out of `git archive` so the raw-data/personal-data scans stay clean.
+state/looped-eval.json export-ignore
+
+# R2 extraction output (provenance-checked, written by the runner's local batch)
+# and the SQLite KB built from it. Both must travel into the merged tree for the
+# done_when assert, but they are data dumps: exclude them from published exports.
+data/kb-extracts.jsonl export-ignore
+data/kb.sqlite export-ignore

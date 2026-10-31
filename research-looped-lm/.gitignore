@@ -1,0 +1,32 @@
+data/private/
+local_batch/.lock
+# Benchmark is generated on demand by tools/make_benchmark.py (no committed raw data).
+benchmark/*.jsonl
+__pycache__/
+.venv/
+*.pyc
+.env
+.env.*
+# The 3090 result must survive the item->master merge: the runner re-runs done_when
+# in the MAIN repo, which never receives untracked/ignored worktree files. Track it,
+# but keep it out of published exports via the root .gitattributes (raw-data scan).
+state/*
+!state/looped-eval.json
+data/raw/
+*.db
+*.sqlite
+node_modules/
+artifacts/
+gpu_jobs/*.log
+gpu_jobs/*.exit
+gpu_jobs/*.started
+gpu_jobs/*.submitted
+gpu_jobs/*.reqhash
+fetch/*.log
+fetch/*.exit
+fetch/*.started
+local_batch/*.log
+local_batch/*.exit
+.pytest_cache/
+*.safetensors
+*.gguf
