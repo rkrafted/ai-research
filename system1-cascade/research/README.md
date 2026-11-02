@@ -5,7 +5,7 @@ Question: which published JEV/Laya-type ("System 1", decision-only) models exist
 | File | What it is | How far to trust it |
 |---|---|---|
 | `mentions.md` | About 45 outside mentions, read by one cloud agent on 2026-10-30 | Authors' own claims, none reproduced |
-| `CATALOG.md` | Models, uses, results and techniques extracted by a local model. Quotes are checked word for word against the source | Being regenerated, because the 2026-10-30 run's files were lost. Added in a follow-up commit |
+| `CATALOG.md` | Models, uses, results and techniques extracted by a local model. Quotes are checked word for word against the source | Being regenerated, because the 2026-10-30 run's files were lost. The first pass read no arXiv papers and missed 240 of 566 chunks, so a second pass is running. Added in a follow-up commit |
 | `local_research.py` | The pipeline behind the catalog: fetch, extract, report | Recovered from the session transcript |
 
 The plan below is the one written before the benchmarks. `../RESULTS.md` shows what survived testing: several items did not, including think-when-unsure and router v2. `../FUTURE.md` has the current order.

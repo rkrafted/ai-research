@@ -35,7 +35,7 @@ An earlier standalone greedy run scored 90.9 and 94.0, so the same-run baseline 
 - **Laya lost as a shortlister** here: 80.0 top-1 against 92.3 for embeddings.
 - **Thinking vs verifying is unsettled.** On the same tasks: math 98.0 each (50 tasks); code 92.5 thinking with an adapter, 85.0 plain thinking, 90.0 verified (40 tasks). Too small to rank them.
 
-Details and corrections: [`RESULTS.md`](RESULTS.md). What to do next: [`FUTURE.md`](FUTURE.md). The research behind the plan: [`research/`](research/README.md).
+Details and corrections: [`RESULTS.md`](RESULTS.md). What to do next: [`FUTURE.md`](FUTURE.md). What each published model and trick is good for, and how to combine them: [`USES.md`](USES.md). The research behind the plan: [`research/`](research/README.md).
 
 ## How the cascade works (`code/decide.py`)
 

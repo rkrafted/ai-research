@@ -19,7 +19,7 @@ The order follows measured evidence where there is any. "Unknown" means nobody h
 ## Ranked next steps
 
 1. **Run the cascade on a real task of ours.** The original plan said a real classifier, and it ran on CLINC150 instead. Fit thresholds on that task's own validation data, because they do not transfer. This is the only step that shows whether the cascade is useful outside a benchmark.
-2. **Lower OOS false accepts.** 108 of 700 OOS messages got through, more than the 91 in-scope mistakes out of 3,000. The thresholds were fitted on only 100 OOS examples, so add CLINC's other OOS examples and use Learn-then-Test thresholds, which were in the plan and never used.
+2. **Lower OOS false accepts.** 108 of 700 OOS messages got through, more than the 91 in-scope mistakes out of 3,000. The thresholds were fitted on only 100 OOS examples, so add CLINC's other OOS examples and use Learn-then-Test thresholds, which were in the plan and never used. Try reading every rotation of the options as well: `USES.md` has the evidence and the other tricks to combine with it.
 3. **Contrastive option descriptions** for neighbouring intents, such as what separates `user_name` from `change_user_name`. This was the main real-miss pattern in the audit. Tune on CLINC's unused validation messages and score on a new dataset (BANKING77 or HWU64), since no clean CLINC test data remains.
 4. **Settle thinking against verifying.** Run thinking, and thinking plus the verifier, on the full 164 and 200 tasks, and compare per task. Today's comparison covers only 40 and 50 tasks. It has thinking ahead on code (92.5 with an adapter vs 90.0) and tied on math (98.0).
 5. **Build the tool-call verifier:** validate against the schema, retry on failure, and score on BFCL.
