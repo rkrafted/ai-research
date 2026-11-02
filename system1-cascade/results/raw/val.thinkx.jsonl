@@ -1,0 +1,131 @@
+{"id": "val-3", "intent": "no", "pick": "no", "tokens": 68}
+{"id": "val-51", "intent": "translate", "pick": "translate", "tokens": 88}
+{"id": "val-57", "intent": "recipe", "pick": "recipe", "tokens": 66}
+{"id": "val-120", "intent": "greeting", "pick": "greeting", "tokens": 82}
+{"id": "val-144", "intent": "order", "pick": "order", "tokens": 70}
+{"id": "val-152", "intent": "share_location", "pick": "share_location", "tokens": 89}
+{"id": "val-177", "intent": "change_ai_name", "pick": "change_ai_name", "tokens": 64}
+{"id": "val-158", "intent": "balance", "pick": "balance", "tokens": 126}
+{"id": "val-259", "intent": "timezone", "pick": "timezone", "tokens": 63}
+{"id": "val-266", "intent": "cancel_reservation", "pick": "cancel_reservation", "tokens": 81}
+{"id": "val-260", "intent": "todo_list_update", "pick": "todo_list_update", "tokens": 170}
+{"id": "val-269", "intent": "order", "pick": "none of these", "tokens": 85}
+{"id": "val-289", "intent": "fun_fact", "pick": "fun_fact", "tokens": 51}
+{"id": "val-302", "intent": "timer", "pick": "timer", "tokens": 103}
+{"id": "val-321", "intent": "calendar", "pick": "none of these", "tokens": 152}
+{"id": "val-347", "intent": "play_music", "pick": "none of these", "tokens": 103}
+{"id": "val-355", "intent": "order", "pick": "none of these", "tokens": 89}
+{"id": "val-370", "intent": "order", "pick": "order", "tokens": 96}
+{"id": "val-407", "intent": "transactions", "pick": "transactions", "tokens": 82}
+{"id": "val-439", "intent": "update_playlist", "pick": "update_playlist", "tokens": 61}
+{"id": "val-462", "intent": "distance", "pick": "distance", "tokens": 125}
+{"id": "val-476", "intent": "reminder_update", "pick": "reminder_update", "tokens": 131}
+{"id": "val-484", "intent": "user_name", "pick": "user_name", "tokens": 114}
+{"id": "val-448", "intent": "lost_luggage", "pick": "lost_luggage", "tokens": 571}
+{"id": "val-499", "intent": "bill_balance", "pick": "bill_balance", "tokens": 352}
+{"id": "val-508", "intent": "ingredients_list", "pick": "ingredients_list", "tokens": 90}
+{"id": "val-554", "intent": "make_call", "pick": "make_call", "tokens": 80}
+{"id": "val-529", "intent": "report_fraud", "pick": "none of these", "tokens": 133}
+{"id": "val-577", "intent": "reminder_update", "pick": "reminder_update", "tokens": 83}
+{"id": "val-583", "intent": "restaurant_reservation", "pick": "none of these", "tokens": 97}
+{"id": "val-660", "intent": "recipe", "pick": "recipe", "tokens": 67}
+{"id": "val-733", "intent": "reminder_update", "pick": "reminder_update", "tokens": 179}
+{"id": "val-765", "intent": "text", "pick": "text", "tokens": 386}
+{"id": "val-559", "intent": "accept_reservations", "pick": "accept_reservations", "tokens": 957}
+{"id": "val-803", "intent": "timezone", "pick": "timezone", "tokens": 59}
+{"id": "val-845", "intent": "change_ai_name", "pick": "change_ai_name", "tokens": 82}
+{"id": "val-804", "intent": "balance", "pick": "balance", "tokens": 145}
+{"id": "val-876", "intent": "travel_suggestion", "pick": "travel_suggestion", "tokens": 73}
+{"id": "val-895", "intent": "gas", "pick": "gas", "tokens": 97}
+{"id": "val-897", "intent": "reminder_update", "pick": "reminder_update", "tokens": 82}
+{"id": "val-912", "intent": "share_location", "pick": "share_location", "tokens": 95}
+{"id": "val-920", "intent": "accept_reservations", "pick": "accept_reservations", "tokens": 163}
+{"id": "val-922", "intent": "what_is_your_name", "pick": "change_ai_name", "tokens": 145}
+{"id": "val-931", "intent": "new_card", "pick": "new_card", "tokens": 107}
+{"id": "val-934", "intent": "update_playlist", "pick": "update_playlist", "tokens": 55}
+{"id": "val-946", "intent": "change_volume", "pick": "whisper_mode", "tokens": 111}
+{"id": "val-899", "intent": "text", "pick": "text", "tokens": 1678}
+{"id": "val-956", "intent": "fun_fact", "pick": "fun_fact", "tokens": 103}
+{"id": "val-977", "intent": "order", "pick": "order", "tokens": 64}
+{"id": "val-993", "intent": "nutrition_info", "pick": "nutrition_info", "tokens": 85}
+{"id": "val-1000", "intent": "oos", "pick": "none of these", "tokens": 69}
+{"id": "val-1002", "intent": "oos", "pick": "none of these", "tokens": 103}
+{"id": "val-1003", "intent": "oos", "pick": "none of these", "tokens": 79}
+{"id": "val-1001", "intent": "oos", "pick": "none of these", "tokens": 335}
+{"id": "val-1007", "intent": "oos", "pick": "none of these", "tokens": 100}
+{"id": "val-1006", "intent": "oos", "pick": "none of these", "tokens": 64}
+{"id": "val-1009", "intent": "oos", "pick": "none of these", "tokens": 89}
+{"id": "val-1010", "intent": "oos", "pick": "none of these", "tokens": 100}
+{"id": "val-1011", "intent": "oos", "pick": "none of these", "tokens": 70}
+{"id": "val-1013", "intent": "oos", "pick": "none of these", "tokens": 68}
+{"id": "val-1012", "intent": "oos", "pick": "how_busy", "tokens": 668}
+{"id": "val-1014", "intent": "oos", "pick": "none of these", "tokens": 78}
+{"id": "val-1015", "intent": "oos", "pick": "none of these", "tokens": 73}
+{"id": "val-1016", "intent": "oos", "pick": "none of these", "tokens": 74}
+{"id": "val-1017", "intent": "oos", "pick": "none of these", "tokens": 75}
+{"id": "val-1005", "intent": "oos", "pick": "yes", "tokens": 1823}
+{"id": "val-1019", "intent": "oos", "pick": "none of these", "tokens": 110}
+{"id": "val-1018", "intent": "oos", "pick": "none of these", "tokens": 81}
+{"id": "val-1020", "intent": "oos", "pick": "none of these", "tokens": 75}
+{"id": "val-1021", "intent": "oos", "pick": "none of these", "tokens": 90}
+{"id": "val-1022", "intent": "oos", "pick": "none of these", "tokens": 83}
+{"id": "val-1026", "intent": "oos", "pick": "none of these", "tokens": 77}
+{"id": "val-1028", "intent": "oos", "pick": "none of these", "tokens": 79}
+{"id": "val-1029", "intent": "oos", "pick": "none of these", "tokens": 94}
+{"id": "val-1023", "intent": "oos", "pick": "none of these", "tokens": 933}
+{"id": "val-1030", "intent": "oos", "pick": "fun_fact", "tokens": 193}
+{"id": "val-1031", "intent": "oos", "pick": "none of these", "tokens": 73}
+{"id": "val-1032", "intent": "oos", "pick": "none of these", "tokens": 81}
+{"id": "val-1033", "intent": "oos", "pick": "none of these", "tokens": 70}
+{"id": "val-1034", "intent": "oos", "pick": "none of these", "tokens": 106}
+{"id": "val-1036", "intent": "oos", "pick": "none of these", "tokens": 74}
+{"id": "val-1037", "intent": "oos", "pick": "none of these", "tokens": 99}
+{"id": "val-1039", "intent": "oos", "pick": "none of these", "tokens": 93}
+{"id": "val-1041", "intent": "oos", "pick": "none of these", "tokens": 98}
+{"id": "val-1043", "intent": "oos", "pick": "none of these", "tokens": 95}
+{"id": "val-1047", "intent": "oos", "pick": "none of these", "tokens": 65}
+{"id": "val-1046", "intent": "oos", "pick": "none of these", "tokens": 88}
+{"id": "val-1050", "intent": "oos", "pick": "none of these", "tokens": 78}
+{"id": "val-1048", "intent": "oos", "pick": "calculator", "tokens": 98}
+{"id": "val-1051", "intent": "oos", "pick": "none of these", "tokens": 72}
+{"id": "val-1053", "intent": "oos", "pick": "none of these", "tokens": 92}
+{"id": "val-1055", "intent": "oos", "pick": "none of these", "tokens": 86}
+{"id": "val-1054", "intent": "oos", "pick": "none of these", "tokens": 67}
+{"id": "val-1052", "intent": "oos", "pick": "travel_suggestion", "tokens": 342}
+{"id": "val-1057", "intent": "oos", "pick": "none of these", "tokens": 86}
+{"id": "val-1058", "intent": "oos", "pick": "none of these", "tokens": 75}
+{"id": "val-1059", "intent": "oos", "pick": "none of these", "tokens": 92}
+{"id": "val-1060", "intent": "oos", "pick": "none of these", "tokens": 65}
+{"id": "val-1061", "intent": "oos", "pick": "none of these", "tokens": 78}
+{"id": "val-1062", "intent": "oos", "pick": "none of these", "tokens": 100}
+{"id": "val-1063", "intent": "oos", "pick": "none of these", "tokens": 78}
+{"id": "val-1065", "intent": "oos", "pick": "none of these", "tokens": 86}
+{"id": "val-1064", "intent": "oos", "pick": "none of these", "tokens": 76}
+{"id": "val-1066", "intent": "oos", "pick": "none of these", "tokens": 76}
+{"id": "val-1067", "intent": "oos", "pick": "none of these", "tokens": 127}
+{"id": "val-1068", "intent": "oos", "pick": "none of these", "tokens": 108}
+{"id": "val-1069", "intent": "oos", "pick": "none of these", "tokens": 186}
+{"id": "val-1056", "intent": "oos", "pick": "w2", "tokens": 1441}
+{"id": "val-1070", "intent": "oos", "pick": "none of these", "tokens": 84}
+{"id": "val-1072", "intent": "oos", "pick": "none of these", "tokens": 78}
+{"id": "val-1073", "intent": "oos", "pick": "none of these", "tokens": 63}
+{"id": "val-1075", "intent": "oos", "pick": "none of these", "tokens": 96}
+{"id": "val-1077", "intent": "oos", "pick": "none of these", "tokens": 89}
+{"id": "val-1076", "intent": "oos", "pick": "none of these", "tokens": 70}
+{"id": "val-1078", "intent": "oos", "pick": "definition", "tokens": 64}
+{"id": "val-1080", "intent": "oos", "pick": "none of these", "tokens": 65}
+{"id": "val-1079", "intent": "oos", "pick": "none of these", "tokens": 324}
+{"id": "val-1082", "intent": "oos", "pick": "fun_fact", "tokens": 106}
+{"id": "val-1084", "intent": "oos", "pick": "none of these", "tokens": 114}
+{"id": "val-1085", "intent": "oos", "pick": "none of these", "tokens": 165}
+{"id": "val-1086", "intent": "oos", "pick": "none of these", "tokens": 72}
+{"id": "val-1087", "intent": "oos", "pick": "none of these", "tokens": 70}
+{"id": "val-1089", "intent": "oos", "pick": "none of these", "tokens": 80}
+{"id": "val-1088", "intent": "oos", "pick": "none of these", "tokens": 86}
+{"id": "val-1090", "intent": "oos", "pick": "none of these", "tokens": 85}
+{"id": "val-1091", "intent": "oos", "pick": "none of these", "tokens": 83}
+{"id": "val-1092", "intent": "oos", "pick": "none of these", "tokens": 97}
+{"id": "val-1096", "intent": "oos", "pick": "none of these", "tokens": 70}
+{"id": "val-1098", "intent": "oos", "pick": "none of these", "tokens": 76}
+{"id": "val-1095", "intent": "oos", "pick": "none of these", "tokens": 248}
+{"id": "val-1099", "intent": "oos", "pick": "none of these", "tokens": 102}

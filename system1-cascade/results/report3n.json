@@ -1,0 +1,22 @@
+{
+ "k_from_val": 5,
+ "t_s_from_val": -0.15,
+ "t_in_from_val": 0.15,
+ "score": "sn",
+ "val": {
+  "jev_single_k3_%": 98.6,
+  "jev_single_k5_%": 98.7,
+  "in_scope_end_to_end_%": 98.0,
+  "in_scope_refused_%": 1.4,
+  "oos_refused_%": 88.0,
+  "overall_correct_incl_oos_%": 97.09
+ },
+ "test": {
+  "jev_single_k3_%": 96.47,
+  "jev_single_k5_%": 96.67,
+  "in_scope_end_to_end_%": 96.2,
+  "in_scope_refused_%": 1.73,
+  "oos_refused_%": 82.0,
+  "overall_correct_incl_oos_%": 93.83
+ }
+}

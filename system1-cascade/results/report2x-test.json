@@ -1,0 +1,16 @@
+{
+ "split": "test",
+ "in_scope_end_to_end_%": 96.53,
+ "baseline_emb_top1_%": 92.27,
+ "baseline_jev_k3_%": 96.47,
+ "gate_coverage_%": 91.47,
+ "gate_acc_on_accepted_%": 98.98,
+ "oos_gate_false_accept_%": 23.0,
+ "escalated_in_scope": 128,
+ "system2_acc_on_escalated_%": 70.31,
+ "system2_said_none_on_in_scope_%": 15.62,
+ "oos_refused_%": 70.67,
+ "overall_correct_incl_oos_%": 92.22,
+ "unparsed": 0,
+ "mean_think_tokens": 130
+}

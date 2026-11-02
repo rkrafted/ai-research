@@ -29,6 +29,7 @@ Datasets, caches, model weights, transcripts of third-party videos and vendored 
 | `research-setup-upgrades/` | This repo hosts the AI-research pipeline work ("most intelligence per GPU"): **R0**, a |
 | `small-vs-big/` | One agent harness (fixed `bash`/`read_file`/`write_file`/`finish` loop, 30 turns, |
 | `strata-safe/` | Research answer to: **can this box (RTX 3090 24 GB, 30 GB RAM now, 62 GB after |
+| `system1-cascade/` | Measured: can decision-only models (JEV, Laya) pick 1 of 150 reliably, and what raises accuracy without cheating? Code, clean test scores, audit and a ranked plan |
 
 ## Licence
 MIT (`LICENSE`).

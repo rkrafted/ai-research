@@ -1,0 +1,50 @@
+{
+ "policies": {
+  "think": {
+   "t_s": -0.15,
+   "t_in": 0.15,
+   "val": {
+    "in_scope_%": 98.0,
+    "oos_refused_%": 88.0,
+    "overall_%": 97.09
+   },
+   "test": {
+    "in_scope_%": 96.2,
+    "oos_refused_%": 82.0,
+    "overall_%": 93.83
+   }
+  },
+  "jev-pick": {
+   "t_s": -0.15,
+   "t_in": 0.2,
+   "val": {
+    "in_scope_%": 98.0,
+    "oos_refused_%": 87.0,
+    "overall_%": 97.0
+   },
+   "test": {
+    "in_scope_%": 96.33,
+    "oos_refused_%": 79.33,
+    "overall_%": 93.5
+   }
+  },
+  "none-refuses": {
+   "t_s": -0.15,
+   "t_in": 0.15,
+   "val": {
+    "in_scope_%": 97.9,
+    "oos_refused_%": 89.0,
+    "overall_%": 97.09
+   },
+   "test": {
+    "in_scope_%": 96.13,
+    "oos_refused_%": 82.33,
+    "overall_%": 93.83
+   }
+  }
+ },
+ "policy": "none-refuses",
+ "k_from_val": 5,
+ "t_s_from_val": -0.15,
+ "t_in_from_val": 0.15
+}

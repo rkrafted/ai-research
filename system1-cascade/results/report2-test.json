@@ -1,0 +1,13 @@
+{
+ "split": "test",
+ "in_scope_end_to_end_%": 92.8,
+ "baseline_emb_top1_%": 92.27,
+ "baseline_jev_k3_%": 92.93,
+ "escalated_in_scope": 201,
+ "system2_acc_on_escalated_%": 52.24,
+ "system2_said_none_on_in_scope_%": 14.93,
+ "oos_refused_%": 64.67,
+ "overall_correct_incl_oos_%": 88.11,
+ "unparsed": 1,
+ "mean_think_tokens": 166
+}
