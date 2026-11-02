@@ -4,7 +4,7 @@
 
 - **Jev** is TypeSafe AI's **hosted, closed** "System One" model, released 2026-09-15 (versions 1.13.0 and 1.14.0). Its size is not published; Red Hat lists the parameter count as "Unknown". It returns typed choice/score/yes-no probabilities from a single forward pass.
 - **Laya** (`convaiinnovations/laya`, Apache-2.0) is a **421M ModernBERT-large encoder**, with a 322M mmBERT multilingual variant. It is an open copy of Jev's request/response shape. It is not a generative model.
-- **No outside source names a "JEV-27B".** The open 27B Jev-style checkpoints we found are:
+- **No outside source names a "JEV-27B".** *(Corrected 2026-11-03: this was wrong. A later pass found [autotrust/JEV-27B-VL](https://huggingface.co/autotrust/JEV-27B-VL) and cards that cite it.)* The open 27B Jev-style checkpoints we found are:
   - Zefan-Cai/Open-Jev (2B/9B/27B)
   - getainode/jebadiah (LoRA on Qwen3.8-27B)
   - OmniJev/OneJev (Qwen3.5-0.8B up to Qwen3.8-27B)
