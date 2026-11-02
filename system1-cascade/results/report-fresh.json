@@ -1,0 +1,23 @@
+{
+ "n_in_scope": 3000,
+ "n_oos": 700,
+ "embedding_top1_%": 93.37,
+ "recall_at_k_%": 99.6,
+ "in_scope_%": 96.97,
+ "in_scope_ci95": [
+  96.29,
+  97.52
+ ],
+ "in_scope_refused_%": 1.07,
+ "oos_refused_%": 84.57,
+ "oos_refused_ci95": [
+  81.71,
+  87.06
+ ],
+ "overall_%": 94.62,
+ "accepted_share_of_in_scope_%": 93.23,
+ "accepted_right_%": 98.86,
+ "escalated_share_of_in_scope_%": 5.7,
+ "escalated_right_%": 84.21,
+ "oos_accepted_by_gate_%": 9.43
+}
